@@ -5,6 +5,12 @@ export default {
   content: ["./client/**/*.{ts,tsx}"],
   prefix: "",
   theme: {
+    fontFamily: {
+      sans: ["Lora", "serif"],
+      serif: ["Lora", "serif"],
+      display: ["Bebas Neue", "sans-serif"],
+      cinzel: ["Cinzel", "serif"],
+    },
     container: {
       center: true,
       padding: "2rem",
