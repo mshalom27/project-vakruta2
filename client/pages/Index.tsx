@@ -2,20 +2,14 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 export default function Index() {
   const heroHeadingRef = useRef<HTMLHeadingElement>(null);
   const heroParagraphRef = useRef<HTMLParagraphElement>(null);
   const heroImageRef = useRef<HTMLDivElement>(null);
-  const aboutHeadingRef = useRef<HTMLHeadingElement>(null);
-  const statsCardsRef = useRef<HTMLDivElement>(null);
-  const brochureHeadingRef = useRef<HTMLHeadingElement>(null);
 
   useEffect(() => {
-    // Minimal hero animation on page load
+    // Only hero animation on page load
     gsap.from(heroHeadingRef.current, {
       duration: 0.8,
       opacity: 0,
@@ -38,43 +32,6 @@ export default function Index() {
       delay: 0.2,
       ease: "power2.out",
     });
-
-    // Subtle scroll animations
-    gsap.from(aboutHeadingRef.current, {
-      scrollTrigger: {
-        trigger: aboutHeadingRef.current,
-        start: "top 80%",
-        end: "top 50%",
-        scrub: false,
-      },
-      duration: 0.6,
-      opacity: 0,
-      y: 15,
-      ease: "power2.out",
-    });
-
-    gsap.from(statsCardsRef.current?.children, {
-      scrollTrigger: {
-        trigger: statsCardsRef.current,
-        start: "top 85%",
-      },
-      duration: 0.5,
-      opacity: 0,
-      y: 10,
-      stagger: 0.05,
-      ease: "power2.out",
-    });
-
-    gsap.from(brochureHeadingRef.current, {
-      scrollTrigger: {
-        trigger: brochureHeadingRef.current,
-        start: "top 80%",
-      },
-      duration: 0.6,
-      opacity: 0,
-      y: 15,
-      ease: "power2.out",
-    });
   }, []);
 
   return (
@@ -83,9 +40,13 @@ export default function Index() {
 
       {/* Hero Section */}
       <section id="hero" className="flex-1 relative overflow-hidden py-20 md:py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-12">
+        {/* Background pattern decorations */}
+        <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-blue-100/30 blur-3xl"></div>
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-amber-100/30 blur-3xl"></div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-12 relative z-10">
           {/* Left Content */}
-          <div className="flex-1 z-10">
+          <div className="flex-1">
             <h1
               ref={heroHeadingRef}
               className="font-display text-5xl md:text-7xl font-bold text-blue-900 mb-6 leading-tight"
@@ -125,10 +86,17 @@ export default function Index() {
             </div>
           </div>
         </div>
+      </section>
 
-        {/* Decorative Elements */}
-        <div className="absolute top-10 right-10 w-32 h-32 border-2 border-amber-400/20 rounded-full opacity-40"></div>
-        <div className="absolute bottom-20 left-5 w-24 h-24 border border-blue-400/20 rounded-lg opacity-20 transform rotate-45"></div>
+      {/* Decorative Divider with Image */}
+      <section className="relative py-12 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets%2F7c19d5750a434083a19dfc82c5f593f4%2F7c400c91cb1d418f949810b8a3a64fdf?format=webp&width=800"
+            alt="Decorative pattern"
+            className="w-full h-32 md:h-48 object-cover rounded-2xl shadow-md opacity-90"
+          />
+        </div>
       </section>
 
       {/* About Us Section */}
@@ -136,7 +104,7 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2
-              ref={aboutHeadingRef}
+              ref={heroHeadingRef}
               className="font-display text-5xl md:text-6xl font-bold text-blue-900 mb-4"
             >
               About Vakruta
@@ -145,14 +113,6 @@ export default function Index() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="bg-white rounded-2xl p-8 border border-blue-100 shadow-md">
-              <img
-                src="https://cdn.builder.io/api/v1/image/assets%2F7c19d5750a434083a19dfc82c5f593f4%2F14012f80d4794515a0272d68adccc272?format=webp&width=500"
-                alt="Indian Architecture"
-                className="w-full h-96 object-cover rounded-lg"
-              />
-            </div>
-
             <div className="space-y-6">
               <p className="font-cinzel text-lg text-blue-900 leading-relaxed">
                 Vakruta stands as a testament to the rich cultural heritage of India, drawing
@@ -182,13 +142,46 @@ export default function Index() {
                 </div>
               </div>
             </div>
+
+            <div className="space-y-6">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F7c19d5750a434083a19dfc82c5f593f4%2F14012f80d4794515a0272d68adccc272?format=webp&width=500"
+                alt="Indian Architecture"
+                className="w-full h-96 object-cover rounded-2xl shadow-lg"
+              />
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F7c19d5750a434083a19dfc82c5f593f4%2F44f9c2e36d114d12b1641fa1fd6f858b?format=webp&width=500"
+                alt="Mughal Architecture"
+                className="w-full h-64 object-cover rounded-2xl shadow-lg"
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Past Statistics Section */}
-      <section id="statistics" className="py-20 md:py-32 bg-white border-t border-blue-100">
+      {/* Pattern Section Divider */}
+      <section className="relative py-12 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets%2F7c19d5750a434083a19dfc82c5f593f4%2F353e5083de13499684ae328314192af4?format=webp&width=800"
+            alt="Floral pattern"
+            className="w-full h-32 md:h-40 object-cover rounded-2xl shadow-md opacity-90"
+          />
+        </div>
+      </section>
+
+      {/* Past Statistics Section */}
+      <section id="statistics" className="py-20 md:py-32 bg-white border-t border-blue-100 relative">
+        {/* Background pattern */}
+        <div className="absolute inset-0 opacity-5 z-0">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets%2F7c19d5750a434083a19dfc82c5f593f4%2F1881e1af68a940969a211c22d36c72f2?format=webp&width=800"
+            alt="Background pattern"
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center mb-16">
             <h2 className="font-display text-5xl md:text-6xl font-bold text-blue-900 mb-4">
               Our Legacy
@@ -198,7 +191,7 @@ export default function Index() {
             </p>
           </div>
 
-          <div ref={statsCardsRef} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { year: "2023", label: "Registrations", value: "2,847", icon: "👥" },
               { year: "2023", label: "Sponsorships", value: "₹2.5 Cr", icon: "💼" },
@@ -222,14 +215,22 @@ export default function Index() {
         </div>
       </section>
 
+      {/* Architectural Pattern Divider */}
+      <section className="relative py-12 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <img
+            src="https://cdn.builder.io/api/v1/image/assets%2F7c19d5750a434083a19dfc82c5f593f4%2F9776c5b8bab042139d8581060bd3eadc?format=webp&width=800"
+            alt="Architectural pattern"
+            className="w-full h-32 md:h-48 object-cover rounded-2xl shadow-md opacity-90"
+          />
+        </div>
+      </section>
+
       {/* Brochure Section */}
       <section id="brochure" className="py-20 md:py-32 bg-white border-t border-blue-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center text-center mb-16">
-            <h2
-              ref={brochureHeadingRef}
-              className="font-display text-5xl md:text-6xl font-bold text-blue-900 mb-6"
-            >
+            <h2 className="font-display text-5xl md:text-6xl font-bold text-blue-900 mb-6">
               Discover Our Brochure
             </h2>
             <p className="font-cinzel text-lg text-blue-800 max-w-2xl">
@@ -238,7 +239,7 @@ export default function Index() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-12 items-center mb-16">
             {/* Left - Logo Showcase */}
             <div className="flex justify-center">
               <div className="relative">
@@ -286,7 +287,7 @@ export default function Index() {
                 </ul>
               </div>
 
-              <button className="w-full bg-gradient-to-r from-blue-900 to-blue-800 hover:from-blue-800 hover:to-blue-700 text-white font-display text-lg font-bold py-4 px-8 rounded-xl shadow-lg transition-all transform hover:scale-105">
+              <button className="w-full bg-gradient-to-r from-blue-900 to-blue-800 hover:from-blue-800 hover:to-blue-700 text-white font-display text-lg font-bold py-4 px-8 rounded-xl shadow-lg transition-all">
                 Download Brochure
               </button>
 
@@ -295,19 +296,43 @@ export default function Index() {
               </p>
             </div>
           </div>
+
+          {/* Gallery of Images */}
+          <div className="mt-16">
+            <h3 className="font-display text-3xl font-bold text-blue-900 text-center mb-8">
+              Visual Heritage
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F7c19d5750a434083a19dfc82c5f593f4%2Fb1479fc524a048b99b0a4b1fd359f851?format=webp&width=500"
+                alt="Heritage imagery"
+                className="w-full h-80 object-cover rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
+              />
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F7c19d5750a434083a19dfc82c5f593f4%2F3d2f8fde9eab4b9a9de13befee07b2df?format=webp&width=500"
+                alt="Pattern imagery"
+                className="w-full h-80 object-cover rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
+              />
+              <img
+                src="https://cdn.builder.io/api/v1/image/assets%2F7c19d5750a434083a19dfc82c5f593f4%2F14012f80d4794515a0272d68adccc272?format=webp&width=500"
+                alt="Architecture imagery"
+                className="w-full h-80 object-cover rounded-2xl shadow-lg hover:shadow-xl transition-shadow"
+              />
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Gradient Section at Bottom */}
       <section className="relative py-20 overflow-hidden bg-white border-t border-blue-100">
-        <div className="absolute inset-0 opacity-25">
+        <div className="absolute inset-0 opacity-20">
           <img
             src="https://cdn.builder.io/api/v1/image/assets%2F7c19d5750a434083a19dfc82c5f593f4%2F7bd6f9d19eb849b583b1cfc21fd88993?format=webp&width=1200"
             alt="Gradient Background"
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/60 to-white"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50/30 to-white"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
           <h2 className="font-display text-4xl md:text-5xl font-bold text-blue-900 mb-4">
             Join the Vakruta Movement
