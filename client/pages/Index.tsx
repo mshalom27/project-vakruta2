@@ -309,7 +309,7 @@ export default function Index() {
         </div>
 
         {/* Multi-layer gradient overlay for aesthetic depth */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-blue-50/60 to-blue-100/80"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-blue-100/95 via-blue-100/50 to-transparent"></div>
 
         {/* Decorative gradient elements */}
         <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-200/30 to-transparent rounded-full blur-3xl -ml-48 -mt-48"></div>
