@@ -297,9 +297,9 @@ export default function Index() {
           </div>
         </div>
       </section>
-
+      <div className = 'flex flex-col'>
       {/* Gradient Section at Bottom */}
-      <section className="relative min-h-96 md:min-h-screen overflow-hidden bg-gradient-to-b from-white via-blue-50 to-blue-100 flex items-center flex flex-col">
+      <section className="relative min-h-96 md:min-h-screen overflow-hidden bg-gradient-to-b from-white via-blue-50 to-blue-100 flex items-center">
         <div className="absolute inset-0">
           <img
             src="https://cdn.builder.io/api/v1/image/assets%2F7c19d5750a434083a19dfc82c5f593f4%2F7bd6f9d19eb849b583b1cfc21fd88993?format=webp&width=1400"
@@ -330,7 +330,8 @@ export default function Index() {
         </div>
       </section>
 
-      <Footer className = 'flex flex-col' />
+        <Footer />
+      </div>
     </div>
   );
 }
