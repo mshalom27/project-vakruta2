@@ -202,7 +202,8 @@ export default function Index() {
             {[
               { year: "2023", label: "Registrations", value: "2,847", icon: "👥" },
               { year: "2023", label: "Sponsorships", value: "₹2.5 Cr", icon: "💼" },
-              
+              { year: "2022", label: "Registrations", value: "1,923", icon: "👥" },
+              { year: "2022", label: "Sponsorships", value: "₹1.8 Cr", icon: "💼" },
             ].map((stat, idx) => (
               <div key={idx} className="relative group">
                 <div className="absolute inset-0 bg-gradient-to-br from-blue-900/5 to-amber-600/5 rounded-2xl group-hover:from-blue-900/10 group-hover:to-amber-600/10 transition-all"></div>
