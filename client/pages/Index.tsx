@@ -200,8 +200,8 @@ export default function Index() {
 
           <div ref={statsCardsRef} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              { year: "2023", label: "Registrations", value: "2,847"},
-              { year: "2023", label: "Sponsorships", value: "₹2.5 Cr"  },
+              { year: "2023", label: "Registrations", value: "2,847", icon: "👥" },
+              { year: "2023", label: "Sponsorships", value: "₹2.5 Cr", icon: "💼" },
               
             ].map((stat, idx) => (
               <div key={idx} className="relative group">
