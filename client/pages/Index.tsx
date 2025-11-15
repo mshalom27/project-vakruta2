@@ -223,7 +223,7 @@ export default function Index() {
       </section>
 
       {/* Brochure Section */}
-      <section id="brochure" className="py-20 md:py-32 bg-white border-t border-blue-100">
+      <section id="brochure" className="py-20 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center text-center mb-16">
             <h2
