@@ -299,24 +299,32 @@ export default function Index() {
       </section>
 
       {/* Gradient Section at Bottom */}
-      <section className="relative py-20 overflow-hidden bg-white border-t border-blue-100">
-        <div className="absolute inset-0 opacity-25">
+      <section className="relative min-h-96 md:min-h-screen overflow-hidden bg-gradient-to-b from-white via-blue-50 to-blue-100 border-t border-blue-100 flex items-center">
+        <div className="absolute inset-0">
           <img
-            src="https://cdn.builder.io/api/v1/image/assets%2F7c19d5750a434083a19dfc82c5f593f4%2F7bd6f9d19eb849b583b1cfc21fd88993?format=webp&width=1200"
+            src="https://cdn.builder.io/api/v1/image/assets%2F7c19d5750a434083a19dfc82c5f593f4%2F7bd6f9d19eb849b583b1cfc21fd88993?format=webp&width=1400"
             alt="Gradient Background"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover opacity-40"
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/60 to-white"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-blue-900 mb-4">
+
+        {/* Multi-layer gradient overlay for aesthetic depth */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-blue-50/60 to-blue-100/80"></div>
+
+        {/* Decorative gradient elements */}
+        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-200/30 to-transparent rounded-full blur-3xl -ml-48 -mt-48"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-amber-200/20 to-transparent rounded-full blur-3xl -mr-48 -mb-48"></div>
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 text-center w-full">
+          <h2 className="font-display text-4xl md:text-6xl font-bold text-blue-900 mb-6 leading-tight">
             Join the Vakruta Movement
           </h2>
-          <p className="font-cinzel text-lg text-blue-800 max-w-2xl mx-auto mb-8">
+          <p className="font-cinzel text-lg md:text-xl text-blue-800 max-w-3xl mx-auto mb-12 leading-relaxed">
             Be part of a growing community dedicated to preserving and celebrating
-            the magnificent heritage of Indian civilization.
+            the magnificent heritage of Indian civilization. Together, we honor the legacy
+            of Mughal artistry and timeless cultural traditions.
           </p>
-          <button className="bg-amber-600 hover:bg-amber-700 text-white font-display font-bold text-lg px-10 py-4 rounded-lg shadow-lg transition-colors">
+          <button className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-display font-bold text-lg px-12 py-4 rounded-xl shadow-xl transition-all transform hover:scale-105">
             Get Involved Today
           </button>
         </div>
