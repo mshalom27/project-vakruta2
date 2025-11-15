@@ -1,23 +1,103 @@
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { cn } from "@/lib/utils";
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export default function Index() {
+  const heroHeadingRef = useRef<HTMLHeadingElement>(null);
+  const heroParagraphRef = useRef<HTMLParagraphElement>(null);
+  const heroImageRef = useRef<HTMLDivElement>(null);
+  const aboutHeadingRef = useRef<HTMLHeadingElement>(null);
+  const statsCardsRef = useRef<HTMLDivElement>(null);
+  const brochureHeadingRef = useRef<HTMLHeadingElement>(null);
+
+  useEffect(() => {
+    // Minimal hero animation on page load
+    gsap.from(heroHeadingRef.current, {
+      duration: 0.8,
+      opacity: 0,
+      y: 20,
+      ease: "power2.out",
+    });
+
+    gsap.from(heroParagraphRef.current, {
+      duration: 0.8,
+      opacity: 0,
+      y: 20,
+      delay: 0.1,
+      ease: "power2.out",
+    });
+
+    gsap.from(heroImageRef.current, {
+      duration: 0.8,
+      opacity: 0,
+      scale: 0.95,
+      delay: 0.2,
+      ease: "power2.out",
+    });
+
+    // Subtle scroll animations
+    gsap.from(aboutHeadingRef.current, {
+      scrollTrigger: {
+        trigger: aboutHeadingRef.current,
+        start: "top 80%",
+        end: "top 50%",
+        scrub: false,
+      },
+      duration: 0.6,
+      opacity: 0,
+      y: 15,
+      ease: "power2.out",
+    });
+
+    gsap.from(statsCardsRef.current?.children, {
+      scrollTrigger: {
+        trigger: statsCardsRef.current,
+        start: "top 85%",
+      },
+      duration: 0.5,
+      opacity: 0,
+      y: 10,
+      stagger: 0.05,
+      ease: "power2.out",
+    });
+
+    gsap.from(brochureHeadingRef.current, {
+      scrollTrigger: {
+        trigger: brochureHeadingRef.current,
+        start: "top 80%",
+      },
+      duration: 0.6,
+      opacity: 0,
+      y: 15,
+      ease: "power2.out",
+    });
+  }, []);
+
   return (
-    <div className="min-h-screen bg-[#e2d0bb] flex flex-col">
+    <div className="min-h-screen bg-white flex flex-col">
       <Navbar />
 
       {/* Hero Section */}
-      <section id="hero" className="flex-1 relative overflow-hidden py-20 md:py-32">
+      <section id="hero" className="flex-1 relative overflow-hidden py-20 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-12">
           {/* Left Content */}
           <div className="flex-1 z-10">
-            <h1 className="font-display text-5xl md:text-7xl font-bold text-blue-900 mb-6 leading-tight">
+            <h1
+              ref={heroHeadingRef}
+              className="font-display text-5xl md:text-7xl font-bold text-blue-900 mb-6 leading-tight"
+            >
               Welcome to
               <br />
               <span className="text-amber-600">Vakruta</span>
             </h1>
-            <p className="font-cinzel text-lg md:text-xl text-blue-800 mb-8 leading-relaxed max-w-lg">
+            <p
+              ref={heroParagraphRef}
+              className="font-cinzel text-lg md:text-xl text-blue-800 mb-8 leading-relaxed max-w-lg"
+            >
               Discover the magnificence of Indian heritage through a celebration of tradition,
               innovation, and timeless elegance inspired by the grandeur of the Mughal Empire.
             </p>
@@ -32,10 +112,10 @@ export default function Index() {
           </div>
 
           {/* Right Visual Element */}
-          <div className="flex-1 relative">
+          <div ref={heroImageRef} className="flex-1 relative">
             <div className="relative w-full h-96 md:h-full flex items-center justify-center">
               <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-amber-400/20 rounded-3xl blur-3xl"></div>
-              <div className="relative bg-white/40 backdrop-blur-sm rounded-3xl p-8 border-2 border-blue-900/20 shadow-2xl">
+              <div className="relative bg-white rounded-3xl p-8 border-2 border-blue-900/10 shadow-lg">
                 <img
                   src="https://cdn.builder.io/api/v1/image/assets%2F7c19d5750a434083a19dfc82c5f593f4%2F2b1a5895495e4fb98781781147a0dfc0?format=webp&width=400"
                   alt="Vakruta Pattern"
@@ -47,22 +127,25 @@ export default function Index() {
         </div>
 
         {/* Decorative Elements */}
-        <div className="absolute top-10 right-10 w-32 h-32 border-2 border-amber-400/30 rounded-full opacity-50"></div>
-        <div className="absolute bottom-20 left-5 w-24 h-24 border border-blue-400/30 rounded-lg opacity-30 transform rotate-45"></div>
+        <div className="absolute top-10 right-10 w-32 h-32 border-2 border-amber-400/20 rounded-full opacity-40"></div>
+        <div className="absolute bottom-20 left-5 w-24 h-24 border border-blue-400/20 rounded-lg opacity-20 transform rotate-45"></div>
       </section>
 
       {/* About Us Section */}
-      <section id="about" className="py-20 md:py-32 bg-gradient-to-b from-[#e2d0bb] to-[#d9c3a8]">
+      <section id="about" className="py-20 md:py-32 bg-white border-t border-blue-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="font-display text-5xl md:text-6xl font-bold text-blue-900 mb-4">
+            <h2
+              ref={aboutHeadingRef}
+              className="font-display text-5xl md:text-6xl font-bold text-blue-900 mb-4"
+            >
               About Vakruta
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-transparent via-amber-600 to-transparent mx-auto"></div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-8 border border-blue-900/10 shadow-lg">
+            <div className="bg-white rounded-2xl p-8 border border-blue-100 shadow-md">
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2F7c19d5750a434083a19dfc82c5f593f4%2F14012f80d4794515a0272d68adccc272?format=webp&width=500"
                 alt="Indian Architecture"
@@ -85,15 +168,15 @@ export default function Index() {
               </p>
 
               <div className="grid grid-cols-3 gap-4 mt-8">
-                <div className="bg-amber-100 rounded-lg p-4 text-center border-l-4 border-amber-600">
+                <div className="bg-blue-50 rounded-lg p-4 text-center border-l-4 border-blue-600">
                   <p className="font-display text-2xl font-bold text-blue-900">1000+</p>
                   <p className="font-cinzel text-sm text-blue-800">Members</p>
                 </div>
-                <div className="bg-amber-100 rounded-lg p-4 text-center border-l-4 border-amber-600">
+                <div className="bg-blue-50 rounded-lg p-4 text-center border-l-4 border-blue-600">
                   <p className="font-display text-2xl font-bold text-blue-900">50+</p>
                   <p className="font-cinzel text-sm text-blue-800">Events</p>
                 </div>
-                <div className="bg-amber-100 rounded-lg p-4 text-center border-l-4 border-amber-600">
+                <div className="bg-blue-50 rounded-lg p-4 text-center border-l-4 border-blue-600">
                   <p className="font-display text-2xl font-bold text-blue-900">25</p>
                   <p className="font-cinzel text-sm text-blue-800">Years</p>
                 </div>
@@ -104,7 +187,7 @@ export default function Index() {
       </section>
 
       {/* Past Statistics Section */}
-      <section id="statistics" className="py-20 md:py-32 bg-gradient-to-b from-[#d9c3a8] to-[#e2d0bb]">
+      <section id="statistics" className="py-20 md:py-32 bg-white border-t border-blue-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-display text-5xl md:text-6xl font-bold text-blue-900 mb-4">
@@ -115,19 +198,16 @@ export default function Index() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div ref={statsCardsRef} className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               { year: "2023", label: "Registrations", value: "2,847", icon: "👥" },
               { year: "2023", label: "Sponsorships", value: "₹2.5 Cr", icon: "💼" },
               { year: "2022", label: "Registrations", value: "1,923", icon: "👥" },
               { year: "2022", label: "Sponsorships", value: "₹1.8 Cr", icon: "💼" },
             ].map((stat, idx) => (
-              <div
-                key={idx}
-                className="relative group"
-              >
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-900/10 to-amber-600/10 rounded-2xl group-hover:from-blue-900/20 group-hover:to-amber-600/20 transition-all"></div>
-                <div className="relative bg-white/50 backdrop-blur-sm rounded-2xl p-8 border border-blue-900/10 shadow-lg hover:shadow-xl transition-all">
+              <div key={idx} className="relative group">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-900/5 to-amber-600/5 rounded-2xl group-hover:from-blue-900/10 group-hover:to-amber-600/10 transition-all"></div>
+                <div className="relative bg-white rounded-2xl p-8 border border-blue-100 shadow-md hover:shadow-lg transition-all">
                   <div className="text-4xl mb-4">{stat.icon}</div>
                   <p className="font-cinzel text-sm text-blue-700 uppercase tracking-wider">
                     {stat.year} - {stat.label}
@@ -139,59 +219,17 @@ export default function Index() {
               </div>
             ))}
           </div>
-
-          {/* Growth Chart Visual */}
-          <div className="mt-16 bg-white/60 backdrop-blur-sm rounded-2xl p-8 border border-blue-900/10 shadow-lg">
-            <h3 className="font-display text-2xl font-bold text-blue-900 mb-8">
-              Growth Trajectory
-            </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {[
-                { label: "2020", registrations: "40%", sponsorship: "30%" },
-                { label: "2021", registrations: "65%", sponsorship: "55%" },
-                { label: "2022", registrations: "85%", sponsorship: "75%" },
-                { label: "2023", registrations: "100%", sponsorship: "100%" },
-              ].map((year, idx) => (
-                <div key={idx} className="space-y-4">
-                  <p className="font-cinzel font-bold text-blue-900 text-center">
-                    {year.label}
-                  </p>
-                  <div className="space-y-2">
-                    <div>
-                      <div className="text-xs font-cinzel text-blue-700 mb-1">
-                        Registrations
-                      </div>
-                      <div className="bg-blue-200 rounded-full h-3 overflow-hidden">
-                        <div
-                          className="bg-gradient-to-r from-blue-600 to-blue-900 h-full"
-                          style={{ width: year.registrations }}
-                        ></div>
-                      </div>
-                    </div>
-                    <div>
-                      <div className="text-xs font-cinzel text-amber-700 mb-1">
-                        Sponsorship
-                      </div>
-                      <div className="bg-amber-200 rounded-full h-3 overflow-hidden">
-                        <div
-                          className="bg-gradient-to-r from-amber-500 to-amber-700 h-full"
-                          style={{ width: year.sponsorship }}
-                        ></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </section>
 
       {/* Brochure Section */}
-      <section id="brochure" className="py-20 md:py-32 bg-gradient-to-b from-[#e2d0bb] via-[#e2d0bb] to-blue-900/5">
+      <section id="brochure" className="py-20 md:py-32 bg-white border-t border-blue-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center text-center mb-16">
-            <h2 className="font-display text-5xl md:text-6xl font-bold text-blue-900 mb-6">
+            <h2
+              ref={brochureHeadingRef}
+              className="font-display text-5xl md:text-6xl font-bold text-blue-900 mb-6"
+            >
               Discover Our Brochure
             </h2>
             <p className="font-cinzel text-lg text-blue-800 max-w-2xl">
@@ -204,8 +242,8 @@ export default function Index() {
             {/* Left - Logo Showcase */}
             <div className="flex justify-center">
               <div className="relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-400/30 to-amber-400/30 rounded-3xl blur-2xl"></div>
-                <div className="relative bg-white rounded-3xl p-12 shadow-2xl border-2 border-amber-500">
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-400/15 to-amber-400/15 rounded-3xl blur-2xl"></div>
+                <div className="relative bg-white rounded-3xl p-12 shadow-lg border-2 border-amber-500">
                   <img
                     src="https://cdn.builder.io/api/v1/image/assets%2F7c19d5750a434083a19dfc82c5f593f4%2F2b1a5895495e4fb98781781147a0dfc0?format=webp&width=600"
                     alt="Vakruta Logo"
@@ -220,7 +258,7 @@ export default function Index() {
 
             {/* Right - Brochure Info */}
             <div className="space-y-6">
-              <div className="bg-gradient-to-br from-blue-50 to-amber-50 rounded-2xl p-8 border border-blue-200">
+              <div className="bg-blue-50 rounded-2xl p-8 border border-blue-200">
                 <h3 className="font-display text-2xl font-bold text-blue-900 mb-4">
                   What's Inside
                 </h3>
@@ -261,15 +299,15 @@ export default function Index() {
       </section>
 
       {/* Gradient Section at Bottom */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 opacity-40">
+      <section className="relative py-20 overflow-hidden bg-white border-t border-blue-100">
+        <div className="absolute inset-0 opacity-25">
           <img
             src="https://cdn.builder.io/api/v1/image/assets%2F7c19d5750a434083a19dfc82c5f593f4%2F7bd6f9d19eb849b583b1cfc21fd88993?format=webp&width=1200"
             alt="Gradient Background"
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#e2d0bb]/50 to-[#e2d0bb]"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/60 to-white"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-center">
           <h2 className="font-display text-4xl md:text-5xl font-bold text-blue-900 mb-4">
             Join the Vakruta Movement
