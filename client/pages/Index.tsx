@@ -1,10 +1,4 @@
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 // Grid Background Component
 const GridBackground = ({
@@ -27,6 +21,36 @@ const GridBackground = ({
       <div className="pointer-events-none absolute inset-0 [mask-image:radial-gradient(ellipse_at_center,black_60%,transparent)]"></div>
       {children}
     </div>
+  );
+};
+
+// Navbar Component
+const Navbar = () => {
+  return (
+    <nav className="bg-[#15122e] text-white py-4 sticky top-0 z-50 shadow-lg">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
+        <div className="text-2xl font-bold text-[#f5c422]">Vakruta</div>
+        <div className="hidden md:flex gap-8">
+          <a href="#hero" className="hover:text-[#f5c422] transition-colors">Home</a>
+          <a href="#about" className="hover:text-[#f5c422] transition-colors">About</a>
+          <a href="#statistics" className="hover:text-[#f5c422] transition-colors">Highlights</a>
+          <a href="#brochure" className="hover:text-[#f5c422] transition-colors">Brochure</a>
+        </div>
+      </div>
+    </nav>
+  );
+};
+
+// Footer Component
+const Footer = () => {
+  return (
+    <footer className="bg-[#15122e] text-white py-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <p className="text-[#f5c422] font-bold text-xl mb-2">Vakruta</p>
+        <p className="text-sm">NIT Rourkela's Premier Asian Parliamentary Debate Tournament</p>
+        <p className="text-xs mt-4 text-gray-400">© 2025 Vakruta. All rights reserved.</p>
+      </div>
+    </footer>
   );
 };
 
@@ -235,16 +259,11 @@ export default function Index() {
               ref={heroParagraphRef}
               className="font-cinzel text-lg md:text-xl text-[#15122e] mb-8 leading-relaxed max-w-lg opacity-0 transform -translate-x-12"
             >
-              Discover the magnificence of Indian heritage through a celebration
-              of tradition, innovation, and timeless elegance inspired by the
-              grandeur of the Mughal Empire.
+              NIT Rourkela's premier Asian Parliamentary Debate tournament. Join the finest debaters from across the nation for an intellectual showdown celebrating the art of argumentation and oratory excellence.
             </p>
             <div className="flex gap-4">
               <button className="bg-[#15122e] hover:bg-[#0f0c20] text-white font-cinzel font-semibold px-8 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
-                Explore More
-              </button>
-              <button className="border-2 border-[#15122e] text-[#388697] hover:bg-[#0f0c20] hover:text-white font-cinzel font-semibold px-8 py-3 rounded-lg transition-all duration-300 hover:scale-105">
-                Learn More
+                Register Now
               </button>
             </div>
           </div>
@@ -305,38 +324,31 @@ export default function Index() {
               className="space-y-6 opacity-0 transform translate-x-12"
             >
               <p className="font-cinzel text-lg text-[#15122e] leading-relaxed">
-                Vakruta stands as a testament to the rich cultural heritage of
-                India, drawing inspiration from the magnificent Mughal Empire.
-                Our mission is to celebrate the artistic excellence,
-                architectural grandeur, and timeless traditions that have shaped
-                Indian civilization.
+                Vakruta is NIT Rourkela's flagship Asian Parliamentary Debate tournament, bringing together the brightest minds from institutions across India. We provide a platform for intellectual discourse, critical thinking, and the art of persuasive argumentation.
               </p>
 
               <p className="font-cinzel text-lg text-[#15122e] leading-relaxed">
-                We bring together scholars, artisans, and enthusiasts who
-                appreciate the intricate craftsmanship, elaborate geometric
-                patterns, and profound symbolism that characterize Mughal art
-                and architecture.
+                Through rigorous debate rounds, engaging workshops, and competitive spirit, Vakruta cultivates eloquence, analytical thinking, and the ability to articulate complex ideas with clarity and conviction.
               </p>
 
               <div className="grid grid-cols-3 gap-4 mt-8">
                 <div className="bg-[#e8f3f7] rounded-lg p-4 text-center border-l-4 border-[#388697] hover:scale-110 transition-transform duration-300">
                   <p className="font-display text-2xl font-bold text-[#15122e]">
-                    1000+
+                    100+
                   </p>
-                  <p className="font-cinzel text-sm text-[#388697]">Members</p>
+                  <p className="font-cinzel text-sm text-[#388697]">Debaters</p>
                 </div>
                 <div className="bg-[#e8f3f7] rounded-lg p-4 text-center border-l-4 border-[#388697] hover:scale-110 transition-transform duration-300">
                   <p className="font-display text-2xl font-bold text-[#15122e]">
-                    50+
+                    20+
                   </p>
-                  <p className="font-cinzel text-sm text-[#388697]">Events</p>
+                  <p className="font-cinzel text-sm text-[#388697]">Rounds</p>
                 </div>
                 <div className="bg-[#e8f3f7] rounded-lg p-4 text-center border-l-4 border-[#388697] hover:scale-110 transition-transform duration-300">
                   <p className="font-display text-2xl font-bold text-[#15122e]">
-                    25
+                    3
                   </p>
-                  <p className="font-cinzel text-sm text-[#388697]">Years</p>
+                  <p className="font-cinzel text-sm text-[#388697]">Days</p>
                 </div>
               </div>
             </div>
@@ -352,11 +364,11 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-display text-5xl md:text-6xl font-bold text-[#f5c422] mb-4">
-              Our Legacy
+              Tournament Highlights
             </h2>
             <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-[#f5c422] to-transparent mx-auto mb-4"></div>
             <p className="font-cinzel text-xl text-[#15122e]">
-              Celebrating Years of Excellence and Growth
+              Experience World-Class Parliamentary Debate
             </p>
           </div>
 
@@ -417,13 +429,11 @@ export default function Index() {
               ref={brochureHeadingRef}
               className="font-display text-5xl md:text-6xl font-bold text-[#f5c422] mb-4 opacity-0 transform translate-y-12"
             >
-              Discover Our Brochure
+              Tournament Brochure
             </h2>
             <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-[#f5c422] to-transparent mx-auto mb-6"></div>
             <p className="font-cinzel text-lg text-[#15122e] max-w-2xl">
-              Explore the complete story of Vakruta through our comprehensive
-              brochure, featuring detailed information about our heritage,
-              achievements, and vision.
+              Download our comprehensive tournament brochure featuring complete details about Vakruta's debate format, schedule, rules, and registration information.
             </p>
           </div>
 
@@ -459,11 +469,11 @@ export default function Index() {
                 </h3>
                 <ul className="space-y-4 font-cinzel text-[#15122e]">
                   {[
-                    "Complete History and Heritage of Vakruta",
-                    "Detailed Architectural and Artistic Inspirations",
-                    "Member Benefits and Opportunities",
-                    "Sponsorship and Partnership Programs",
-                    "Upcoming Events and Initiatives",
+                    "Tournament Format & Asian Parliamentary Rules",
+                    "Detailed Schedule & Round Breakdowns",
+                    "Registration Process & Eligibility Criteria",
+                    "Prize Pool & Recognition Categories",
+                    "Adjudication Standards & Judging Process",
                   ].map((item, i) => (
                     <li
                       key={i}
@@ -517,17 +527,14 @@ export default function Index() {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-display text-4xl md:text-6xl font-bold text-[#f5c422] mb-4 leading-tight">
-            Join the Vakruta Movement
+            Join Vakruta 2025
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#f5c422] to-transparent mx-auto mb-6"></div>
           <p className="font-cinzel text-lg md:text-xl text-[#15122e] max-w-3xl mx-auto mb-12 leading-relaxed">
-            Be part of a growing community dedicated to preserving and
-            celebrating the magnificent heritage of Indian civilization.
-            Together, we honor the legacy of Mughal artistry and timeless
-            cultural traditions.
+            Step onto the stage at NIT Rourkela's premier debate tournament. Challenge your intellect, sharpen your arguments, and compete with the nation's finest debaters in the Asian Parliamentary format.
           </p>
           <button className="bg-gradient-to-r from-[#f5c422] to-[#d4a913] hover:from-[#d4a913] hover:to-[#b39409] text-[#15122e] font-display font-bold text-lg px-12 py-4 rounded-xl shadow-xl transition-all duration-300 transform hover:scale-110 hover:shadow-2xl">
-            Get Involved Today
+            Register for Tournament
           </button>
         </div>
       </section>
