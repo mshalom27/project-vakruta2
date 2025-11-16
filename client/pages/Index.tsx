@@ -223,12 +223,7 @@ export default function Index() {
               </pattern>
 
               {/* Arabesque flowing pattern */}
-              <pattern id="arabesque" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
-                <path d="M 0,40 Q 20,20 40,40 T 80,40" fill="none" stroke="#f5c422" strokeWidth="1.5" opacity="0.08" />
-                <path d="M 0,40 Q 20,60 40,40 T 80,40" fill="none" stroke="#388697" strokeWidth="1.5" opacity="0.08" />
-                <path d="M 40,0 Q 20,20 40,40 T 40,80" fill="none" stroke="#f5c422" strokeWidth="1" opacity="0.08" />
-                <path d="M 40,0 Q 60,20 40,40 T 40,80" fill="none" stroke="#388697" strokeWidth="1" opacity="0.08" />
-              </pattern>
+              
             </defs>
             <rect width="100%" height="100%" fill="url(#zellige-tile)" />
             <rect width="100%" height="100%" fill="url(#arabesque)" />
