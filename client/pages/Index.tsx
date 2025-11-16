@@ -42,10 +42,10 @@ export default function Index() {
 
       const heading = heroHeadingRef.current;
       const text = heading.textContent || '';
-      heading.innerHTML = text.split('').map(char =>
+      heading.innerHTML = text.split('').map(char => 
         char === ' ' ? ' ' : `<span style="display:inline-block;opacity:0;transform:translateY(20px)">${char}</span>`
       ).join('');
-
+      
       const chars = heading.querySelectorAll('span');
       chars.forEach((char, i) => {
         setTimeout(() => {
@@ -87,7 +87,7 @@ export default function Index() {
             aboutHeadingRef.current.style.opacity = '1';
             aboutHeadingRef.current.style.transform = 'scale(1)';
           }
-
+          
           setTimeout(() => {
             if (aboutImageRef.current) {
               aboutImageRef.current.style.transition = 'all 0.8s ease-out';
@@ -209,8 +209,8 @@ export default function Index() {
             </div>
           </div>
 
-          <div
-            ref={heroImageRef}
+          <div 
+            ref={heroImageRef} 
             className="flex-1 relative opacity-0 transform scale-75 rotate-12"
           >
             <div className="relative w-full h-96 md:h-full flex items-center justify-center">
@@ -244,7 +244,7 @@ export default function Index() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div
+            <div 
               ref={aboutImageRef}
               className="bg-[#faf7f4] rounded-2xl p-8 border border-[#e8dcc8] shadow-md opacity-0 transform -translate-x-12 rotate-3 hover:rotate-0 transition-transform duration-500"
             >
@@ -309,8 +309,8 @@ export default function Index() {
                 <div className="absolute inset-0 bg-gradient-to-br from-[#388697]/5 to-[#f5c422]/5 rounded-2xl group-hover:from-[#388697]/20 group-hover:to-[#f5c422]/20 transition-all duration-500"></div>
                 <div className="relative bg-[#faf7f4] rounded-2xl overflow-hidden border border-[#e8dcc8] shadow-md group-hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2">
                   <div className="h-48 overflow-hidden">
-                    <img
-                      src={stat.imgSrc}
+                    <img 
+                      src={stat.imgSrc} 
                       alt={stat.label}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
@@ -397,12 +397,12 @@ export default function Index() {
       </section>
 
       {/* CTA Section */}
-      <section
+      <section 
         ref={ctaSectionRef}
         className="relative py-20 md:py-32 overflow-hidden opacity-0 transform scale-95"
       >
         <GridBackground className="absolute inset-0 bg-gradient-to-b from-[#f3e8dc] via-[#e8f3f7] to-[#d1e8f1]" />
-
+        
         <div className="absolute inset-0 opacity-30">
           <img
             src="https://i.pinimg.com/736x/e7/f4/3c/e7f43cd2d0fc7a6ed9e0e4ac6c80ffab.jpg"
@@ -414,7 +414,7 @@ export default function Index() {
         <div className="absolute inset-0 bg-gradient-to-b from-[#e8f3f7]/90 via-[#e8f3f7]/40 to-transparent"></div>
 
         <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-[#8EC4D9]/30 to-transparent rounded-full blur-3xl -ml-48 -mt-48 animate-pulse"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-[#f5c422]/20 to-transparent rounded-full blur-3xl -mr-48 -mb-48 animate-pulse" style={{ animationDelay: '1s' }}></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-[#f5c422]/20 to-transparent rounded-full blur-3xl -mr-48 -mb-48 animate-pulse" style={{animationDelay: '1s'}}></div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-display text-4xl md:text-6xl font-bold text-[#f5c422] mb-6 leading-tight">
