@@ -297,7 +297,7 @@ export default function Index() {
       </section>
       <div className = 'flex flex-col'>
       {/* Gradient Section at Bottom */}
-      <section className="relative min-h-96 md:min-h-screen overflow-hidden bg-gradient-to-b from-white via-blue-50 to-blue-100 flex items-center">
+      <section className="relative min-h-96 md:min-h-screen overflow-hidden bg-gradient-to-b from-[#f3e8dc] via-[#e8f3f7] to-[#d1e8f1] flex items-center">
         <div className="absolute inset-0">
           <img
             src="https://cdn.builder.io/api/v1/image/assets%2F7c19d5750a434083a19dfc82c5f593f4%2F7bd6f9d19eb849b583b1cfc21fd88993?format=webp&width=1400"
@@ -307,17 +307,17 @@ export default function Index() {
         </div>
 
         {/* Multi-layer gradient overlay for aesthetic depth */}
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-100/95 via-blue-100/50 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#e8f3f7]/95 via-[#e8f3f7]/50 to-transparent"></div>
 
         {/* Decorative gradient elements */}
-        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-blue-200/30 to-transparent rounded-full blur-3xl -ml-48 -mt-48"></div>
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-amber-200/20 to-transparent rounded-full blur-3xl -mr-48 -mb-48"></div>
+        <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-[#8EC4D9]/30 to-transparent rounded-full blur-3xl -ml-48 -mt-48"></div>
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-[#f5c422]/20 to-transparent rounded-full blur-3xl -mr-48 -mb-48"></div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32 text-center w-full">
-          <h2 className="font-display text-4xl md:text-6xl font-bold text-blue-900 mb-6 leading-tight">
+          <h2 className="font-display text-4xl md:text-6xl font-bold text-[#f5c422] mb-6 leading-tight">
             Join the Vakruta Movement
           </h2>
-          <p className="font-cinzel text-lg md:text-xl text-blue-800 max-w-3xl mx-auto mb-12 leading-relaxed">
+          <p className="font-cinzel text-lg md:text-xl text-[#15122e] max-w-3xl mx-auto mb-12 leading-relaxed">
             Be part of a growing community dedicated to preserving and celebrating
             the magnificent heritage of Indian civilization. Together, we honor the legacy
             of Mughal artistry and timeless cultural traditions.
