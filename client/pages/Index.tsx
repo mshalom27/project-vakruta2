@@ -466,9 +466,7 @@ export default function Index() {
                 Download Brochure
               </button>
 
-              <p className="text-center font-cinzel text-sm text-[#388697]">
-                PDF format • 5.2 MB • Available in English & Hindi
-              </p>
+              
             </div>
           </div>
         </div>
