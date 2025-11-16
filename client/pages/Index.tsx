@@ -315,19 +315,35 @@ export default function Index() {
 
           <div ref={statsCardsRef} className="grid md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {[
-              { year: "2025", label: "Registrations", value: "2,847", icon: "📊" },
-              { year: "2025", label: "Sponsorships", value: "₹1.8 Cr", icon: "💰" },
+              {
+                year: "2025",
+                label: "Registrations",
+                value: "2,847",
+                image: "https://cdn.builder.io/api/v1/image/assets%2F7c19d5750a434083a19dfc82c5f593f4%2F4324065880c44c3789e791aabb29ea65?format=webp&width=600",
+              },
+              {
+                year: "2025",
+                label: "Sponsorships",
+                value: "₹1.8 Cr",
+                image: "https://cdn.builder.io/api/v1/image/assets%2F7c19d5750a434083a19dfc82c5f593f4%2F1028d674e84843efbbe3ef684c03bbd2?format=webp&width=600",
+              },
             ].map((stat, idx) => (
               <div key={idx} className="relative group opacity-0 transform translate-y-12 rotate-6">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#388697]/5 to-[#f5c422]/5 rounded-2xl group-hover:from-[#388697]/20 group-hover:to-[#f5c422]/20 transition-all duration-500"></div>
-                <div className="relative bg-[#faf7f4] rounded-2xl p-8 border border-[#e8dcc8] shadow-md group-hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2">
-                  <div className="text-5xl mb-4 transform group-hover:scale-125 transition-transform duration-300">{stat.icon}</div>
-                  <p className="font-cinzel text-sm text-[#388697] uppercase tracking-wider">
-                    {stat.year} - {stat.label}
-                  </p>
-                  <p className="font-display text-4xl font-bold text-[#f5c422] mt-2 group-hover:scale-110 transition-transform duration-300">
-                    {stat.value}
-                  </p>
+                <div className="relative bg-[#faf7f4] rounded-2xl overflow-hidden border border-[#e8dcc8] shadow-md group-hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2">
+                  <img
+                    src={stat.image}
+                    alt={stat.label}
+                    className="w-full h-56 object-cover"
+                  />
+                  <div className="p-6">
+                    <p className="font-cinzel text-sm text-[#388697] uppercase tracking-wider">
+                      {stat.year} - {stat.label}
+                    </p>
+                    <p className="font-display text-3xl font-bold text-[#f5c422] mt-3">
+                      {stat.value}
+                    </p>
+                  </div>
                 </div>
               </div>
             ))}
