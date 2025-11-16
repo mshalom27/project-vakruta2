@@ -161,7 +161,7 @@ export default function Index() {
                 shaped Indian civilization.
               </p>
 
-              <p className="font-cinzel text-lg text-blue-900 leading-relaxed">
+              <p className="font-cinzel text-lg text-[#15122e] leading-relaxed">
                 We bring together scholars, artisans, and enthusiasts who appreciate the intricate
                 craftsmanship, elaborate geometric patterns, and profound symbolism that characterize
                 Mughal art and architecture.
