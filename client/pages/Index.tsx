@@ -78,11 +78,11 @@ export default function Index() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white flex flex-col">
+    <div className="min-h-screen bg-[#f3e8dc] flex flex-col">
       <Navbar />
 
       {/* Hero Section */}
-      <section id="hero" className="flex-1 relative overflow-hidden py-20 md:py-32 bg-white">
+      <section id="hero" className="flex-1 relative overflow-hidden py-20 md:py-32 bg-[#f3e8dc]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-12">
           {/* Left Content */}
           <div className="flex-1 z-10">
