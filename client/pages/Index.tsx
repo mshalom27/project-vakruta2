@@ -141,11 +141,11 @@ export default function Index() {
             >
               About Vakruta
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-amber-600 to-transparent mx-auto"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#f5c422] to-transparent mx-auto"></div>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="bg-white rounded-2xl p-8 border border-blue-100 shadow-md">
+            <div className="bg-[#faf7f4] rounded-2xl p-8 border border-[#e8dcc8] shadow-md">
               <img
                 src="https://cdn.builder.io/api/v1/image/assets%2F7c19d5750a434083a19dfc82c5f593f4%2F14012f80d4794515a0272d68adccc272?format=webp&width=500"
                 alt="Indian Architecture"
@@ -154,7 +154,7 @@ export default function Index() {
             </div>
 
             <div className="space-y-6">
-              <p className="font-cinzel text-lg text-blue-900 leading-relaxed">
+              <p className="font-cinzel text-lg text-[#15122e] leading-relaxed">
                 Vakruta stands as a testament to the rich cultural heritage of India, drawing
                 inspiration from the magnificent Mughal Empire. Our mission is to celebrate the
                 artistic excellence, architectural grandeur, and timeless traditions that have
