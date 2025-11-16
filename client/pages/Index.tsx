@@ -338,7 +338,7 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="font-display text-5xl md:text-6xl font-bold text-[#f5c422] mb-4">
-              Tournament Highlights
+              Our Legacy
             </h2>
             <div className="w-full h-0.5 bg-gradient-to-r from-transparent via-[#f5c422] to-transparent mx-auto mb-4"></div>
             <p className="font-cinzel text-xl text-[#15122e]">
