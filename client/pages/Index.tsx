@@ -13,18 +13,7 @@ const IslamicPattern = ({
   return (
     <div className={`relative ${className}`}>
       {/* Complex Islamic Star Pattern */}
-      <div
-        className="absolute inset-0 opacity-8"
-        style={{
-          backgroundImage: `
-            radial-gradient(circle at 50% 50%, rgba(245, 196, 34, 0.4) 1px, transparent 1px),
-            radial-gradient(circle at 0% 0%, rgba(56, 134, 151, 0.4) 1px, transparent 1px),
-            radial-gradient(circle at 100% 100%, rgba(245, 196, 34, 0.4) 1px, transparent 1px)
-          `,
-          backgroundSize: '40px 40px, 60px 60px, 50px 50px',
-          backgroundPosition: '0 0, 20px 20px, 10px 10px'
-        }}
-      />
+      
       {/* Interlocking circles (common in Islamic art) */}
       <div className="absolute inset-0 opacity-5">
         <svg className="w-full h-full">
