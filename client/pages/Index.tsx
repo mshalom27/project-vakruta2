@@ -1057,7 +1057,7 @@ export default function Index() {
               <path d="M 40,8 Q 28,8 28,40 Q 28,72 40,72 Q 34,72 34,40 Q 34,8 40,8 Z" fill="currentColor" />
               <circle cx="56" cy="22" r="8" fill="currentColor" />
             </svg>
-            <p className="font-display text-[8rem] font-black text-white">
+            <p className="font-display text-[8rem] font-black text-white whitespace-nowrap">
               VAKRUTA
             </p>
             <svg width="80" height="80" viewBox="0 0 80 80" className="text-white">
