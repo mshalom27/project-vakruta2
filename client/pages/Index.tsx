@@ -330,16 +330,13 @@ export default function Index() {
             ].map((stat, idx) => (
               <div key={idx} className="relative group opacity-0 transform translate-y-12 rotate-6">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#388697]/5 to-[#f5c422]/5 rounded-2xl group-hover:from-[#388697]/20 group-hover:to-[#f5c422]/20 transition-all duration-500"></div>
-                <div className="relative bg-[#faf7f4] rounded-2xl overflow-hidden border border-[#e8dcc8] shadow-md group-hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2">
-                  <div className="relative h-56 overflow-hidden">
-                    <img
-                      src={stat.image}
-                      alt={stat.label}
-                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:rotate-2"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#15122e]/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                  </div>
-                  <div className="p-6">
+                <div className="relative bg-[#faf7f4] rounded-2xl border border-[#e8dcc8] shadow-md group-hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2 p-8">
+                  <img
+                    src={stat.image}
+                    alt={stat.label}
+                    className="w-full h-56 object-cover rounded-lg transition-all duration-500 group-hover:scale-105"
+                  />
+                  <div className="mt-6">
                     <p className="font-cinzel text-sm text-[#388697] uppercase tracking-wider">
                       {stat.year} - {stat.label}
                     </p>
