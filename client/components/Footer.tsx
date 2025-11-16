@@ -5,17 +5,17 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gradient-to-b from-blue-900 to-blue-950 text-white mt-20 relative">
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-amber-500 to-transparent"></div>
+    <footer className="bg-gradient-to-b from-[#15122e] to-[#0f0c22] text-white mt-20 relative">
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#f5c422] to-transparent"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
           {/* About */}
           <div>
-            <h3 className="font-display text-xl font-bold text-amber-400 mb-4">
+            <h3 className="font-display text-xl font-bold text-[#f5c422] mb-4">
               About Vakruta
             </h3>
-            <p className="text-blue-100 font-cinzel text-sm leading-relaxed">
+            <p className="text-[#d1e8f1] font-cinzel text-sm leading-relaxed">
               Inspired by the grandeur of Mughal architecture and timeless Indian
               traditions, Vakruta brings together innovation and heritage.
             </p>
