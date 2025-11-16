@@ -485,15 +485,6 @@ export default function Index() {
           src: local('Georgia'), local('serif');
         }
 
-        @font-face {
-          font-family: 'Cinzel';
-          src: local('Georgia'), local('serif');
-        }
-
-        .font-display {
-          font-family: 'Display', Georgia, serif;
-        }
-
         .font-cinzel {
           font-family: 'Cinzel', Georgia, serif;
         }
