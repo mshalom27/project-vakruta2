@@ -248,8 +248,9 @@ export default function Index() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center py-8">
             {/* Left: Title & Description */}
-            
-
+            <div className="text-center md:text-left">
+              {/* Bismillah-inspired Ornamental Header */}
+             
               {/* Main Title with Mashrabiya Lattice Frame */}
               <div className="relative inline-block mb-6">
                 {/* Mashrabiya-inspired geometric corners */}
