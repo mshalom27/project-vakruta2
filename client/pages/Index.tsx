@@ -237,7 +237,7 @@ export default function Index() {
             </p>
             <div className="flex gap-4">
               <button className="bg-[#15122e] hover:bg-[#0f0c20] text-white font-cinzel font-semibold px-8 py-3 rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105">
-                Register Now
+                Sponsor Us
               </button>
             </div>
           </div>
@@ -462,7 +462,7 @@ export default function Index() {
                 </ul>
               </div>
 
-              <button className="w-full bg-gradient-to-r from-[#388697] to-[#2a6a7e] hover:from-[#2a6a7e] hover:to-[#1f4f5f] text-white font-display text-lg font-bold py-4 px-8 rounded-xl shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
+              <button className="w-full bg-[#15122e] hover:bg-[#0f0c20] text-white font-display text-lg font-bold py-4 px-8 rounded-xl shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-2xl">
                 Download Brochure
               </button>
 
