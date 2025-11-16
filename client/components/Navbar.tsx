@@ -27,7 +27,7 @@ export default function Navbar() {
                 />
               </div>
             </div>
-            
+
           </Link>
 
           {/* Desktop Nav Links */}
@@ -35,7 +35,7 @@ export default function Navbar() {
             {[
               { id: "hero", label: "Home" },
               { id: "about", label: "About" },
-              { id: "statistics", label: "Legacy" },
+              { id: "statistics", label: "Statistics" },
               { id: "brochure", label: "Brochure" },
             ].map((item, idx) => (
               <button
@@ -54,11 +54,11 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Desktop CTA */}
+          {/* Desktop CTA - Subtle animation like Sponsor Us */}
           <div className="hidden lg:block">
-            <button className="relative group overflow-hidden">
-              <div className="absolute inset-0 bg-[#388697] transform translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
-              <div className="relative bg-[#f5c422] text-[#15122e] font-display font-black text-[15px] uppercase tracking-wider px-6 py-3 border-2 border-[#f5c422] group-hover:border-[#388697]">
+            <button className="relative group">
+              <div className="absolute inset-0 bg-[#f5c422] transform group-hover:scale-105 transition-transform duration-300"></div>
+              <div className="relative bg-[#15122e] m-1 px-6 py-3 font-display font-black text-[15px] text-[#f5c422] uppercase tracking-wider group-hover:bg-[#f5c422] group-hover:text-[#15122e] transition-colors duration-300 border-2 border-transparent text-md">
                 Register →
               </div>
             </button>
@@ -93,7 +93,7 @@ export default function Navbar() {
           {[
             { id: "hero", label: "Home" },
             { id: "about", label: "About" },
-            { id: "statistics", label: "Legacy" },
+            { id: "statistics", label: "Statistics" },
             { id: "brochure", label: "Brochure" },
           ].map((item, idx) => (
             <button
@@ -105,9 +105,12 @@ export default function Navbar() {
             </button>
           ))}
 
-          {/* CTA Button */}
-          <button className="mt-4 bg-[#f5c422] text-[#15122e] w-full py-3 text-center font-black uppercase tracking-wider">
-            Register →
+          {/* CTA Button - Mobile with similar animation */}
+          <button className="relative group mt-4 w-full">
+            <div className="absolute inset-0 bg-[#f5c422]"></div>
+            <div className="relative bg-[#15122e] m-1 px-4 py-3 font-cinzel font-bold text-[#f5c422] uppercase tracking-wider text-center group-active:bg-[#f5c422] group-active:text-[#15122e] transition-colors duration-300">
+              Register →
+            </div>
           </button>
         </div>
       </div>
