@@ -64,11 +64,23 @@ export default function Footer() {
               Join us in celebrating the spirit of Vakruta
             </p>
             <div className="mt-4 flex gap-4">
-              
+              <a
                 href="#"
                 className="w-10 h-10 bg-[#f5c422] hover:bg-[#d4a913] rounded-full flex items-center justify-center transition-colors"
               >
-                <span className="text-[#15122e] font-bold">IG</span>
+                <span className="text-[#15122e] font-bold">f</span>
+              </a>
+              <a
+                href="#"
+                className="w-10 h-10 bg-[#f5c422] hover:bg-[#d4a913] rounded-full flex items-center justify-center transition-colors"
+              >
+                <span className="text-[#15122e] font-bold">𝕏</span>
+              </a>
+              <a
+                href="#"
+                className="w-10 h-10 bg-[#f5c422] hover:bg-[#d4a913] rounded-full flex items-center justify-center transition-colors"
+              >
+                <span className="text-[#15122e] font-bold">in</span>
               </a>
             </div>
           </div>
