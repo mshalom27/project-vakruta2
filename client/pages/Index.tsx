@@ -23,6 +23,7 @@ const GridBackground = ({ children, className = "" }: { children?: React.ReactNo
   );
 };
 
+
 export default function Index() {
   const heroHeadingRef = useRef<HTMLHeadingElement>(null);
   const heroParagraphRef = useRef<HTMLParagraphElement>(null);
@@ -37,9 +38,11 @@ export default function Index() {
   const ctaSectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
+    // Enhanced hero animations with staggered reveal
     const heroTimeline = () => {
       if (!heroHeadingRef.current || !heroParagraphRef.current || !heroImageRef.current) return;
 
+      // Heading animation - letter by letter reveal
       const heading = heroHeadingRef.current;
       const text = heading.textContent || '';
       heading.innerHTML = text.split('').map(char => 
@@ -55,6 +58,7 @@ export default function Index() {
         }, i * 30);
       });
 
+      // Paragraph slide in from left
       setTimeout(() => {
         if (heroParagraphRef.current) {
           heroParagraphRef.current.style.transition = 'all 1s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
@@ -63,6 +67,7 @@ export default function Index() {
         }
       }, 400);
 
+      // Image morph in
       setTimeout(() => {
         if (heroImageRef.current) {
           heroImageRef.current.style.transition = 'all 1.2s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
@@ -74,11 +79,13 @@ export default function Index() {
 
     heroTimeline();
 
+    // Scroll-triggered animations using Intersection Observer
     const observerOptions = {
       threshold: 0.2,
       rootMargin: '0px'
     };
 
+    // About section animation
     const aboutObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -109,6 +116,7 @@ export default function Index() {
 
     if (aboutHeadingRef.current) aboutObserver.observe(aboutHeadingRef.current);
 
+    // Stats cards cascading animation
     const statsObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting && statsCardsRef.current) {
@@ -126,6 +134,7 @@ export default function Index() {
 
     if (statsCardsRef.current) statsObserver.observe(statsCardsRef.current);
 
+    // Brochure section parallel animation
     const brochureObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -156,6 +165,7 @@ export default function Index() {
 
     if (brochureHeadingRef.current) brochureObserver.observe(brochureHeadingRef.current);
 
+    // CTA section ripple effect
     const ctaObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting && ctaSectionRef.current) {
@@ -181,10 +191,11 @@ export default function Index() {
     <div className="min-h-screen bg-[#f3e8dc]">
       <Navbar />
 
-      {/* Hero Section */}
+      {/* Hero Section with Grid Background */}
       <section id="hero" className="relative overflow-hidden py-20 md:py-32">
         <GridBackground className="absolute inset-0" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-12">
+          {/* Left Content */}
           <div className="flex-1 z-10">
             <h1
               ref={heroHeadingRef}
@@ -209,6 +220,7 @@ export default function Index() {
             </div>
           </div>
 
+          {/* Right Visual Element */}
           <div 
             ref={heroImageRef} 
             className="flex-1 relative opacity-0 transform scale-75 rotate-12"
@@ -217,8 +229,8 @@ export default function Index() {
               <div className="absolute inset-0 bg-gradient-to-br from-blue-400/20 to-amber-400/20 rounded-3xl blur-3xl animate-pulse"></div>
               <div className="relative bg-white rounded-3xl p-8 border-2 border-blue-900/10 shadow-2xl hover:shadow-3xl transition-shadow duration-500">
                 <img
-                  src="https://i.pinimg.com/736x/51/ae/0c/51ae0c04e4c65cc83c0c4adb9d16f8b6.jpg"
-                  alt="Islamic Geometric Pattern"
+                  src="https://cdn.builder.io/api/v1/image/assets%2F7c19d5750a434083a19dfc82c5f593f4%2F2b1a5895495e4fb98781781147a0dfc0?format=webp&width=400"
+                  alt="Vakruta Pattern"
                   className="w-full h-auto max-h-80 object-contain"
                 />
               </div>
@@ -226,6 +238,7 @@ export default function Index() {
           </div>
         </div>
 
+        {/* Enhanced Decorative Elements */}
         <div className="absolute top-10 right-10 w-32 h-32 border-2 border-[#f5c422]/20 rounded-full opacity-40 animate-spin-slow"></div>
         <div className="absolute bottom-20 left-5 w-24 h-24 border border-[#8EC4D9]/20 rounded-lg opacity-20 transform rotate-45 animate-float"></div>
       </section>
@@ -249,8 +262,8 @@ export default function Index() {
               className="bg-[#faf7f4] rounded-2xl p-8 border border-[#e8dcc8] shadow-md opacity-0 transform -translate-x-12 rotate-3 hover:rotate-0 transition-transform duration-500"
             >
               <img
-                src="https://i.pinimg.com/736x/f6/c1/22/f6c12257bd67f29dc9b0c92879b70e44.jpg"
-                alt="Islamic Floral Ornament"
+                src="https://cdn.builder.io/api/v1/image/assets%2F7c19d5750a434083a19dfc82c5f593f4%2F14012f80d4794515a0272d68adccc272?format=webp&width=500"
+                alt="Indian Architecture"
                 className="w-full h-96 object-cover rounded-lg"
               />
             </div>
@@ -300,29 +313,21 @@ export default function Index() {
             </p>
           </div>
 
-          <div ref={statsCardsRef} className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div ref={statsCardsRef} className="grid md:grid-cols-2 lg:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {[
-              { year: "2025", label: "Registrations", value: "2,847", imgSrc: "https://i.pinimg.com/736x/34/b5/51/34b551bf9d94802e9ad1e9c4835df9dd.jpg" },
-              { year: "2025", label: "Sponsorships", value: "₹1.8 Cr", imgSrc: "https://i.pinimg.com/736x/d7/ee/f7/d7eef77ed04d14e3c68b51b04cea49cc.jpg" },
+              { year: "2025", label: "Registrations", value: "2,847", icon: "📊" },
+              { year: "2025", label: "Sponsorships", value: "₹1.8 Cr", icon: "💰" },
             ].map((stat, idx) => (
               <div key={idx} className="relative group opacity-0 transform translate-y-12 rotate-6">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#388697]/5 to-[#f5c422]/5 rounded-2xl group-hover:from-[#388697]/20 group-hover:to-[#f5c422]/20 transition-all duration-500"></div>
-                <div className="relative bg-[#faf7f4] rounded-2xl overflow-hidden border border-[#e8dcc8] shadow-md group-hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2">
-                  <div className="h-48 overflow-hidden">
-                    <img 
-                      src={stat.imgSrc} 
-                      alt={stat.label}
-                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                    />
-                  </div>
-                  <div className="p-6">
-                    <p className="font-cinzel text-sm text-[#388697] uppercase tracking-wider mb-2">
-                      {stat.year} - {stat.label}
-                    </p>
-                    <p className="font-display text-4xl font-bold text-[#f5c422] group-hover:scale-110 transition-transform duration-300">
-                      {stat.value}
-                    </p>
-                  </div>
+                <div className="relative bg-[#faf7f4] rounded-2xl p-8 border border-[#e8dcc8] shadow-md group-hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2">
+                  <div className="text-5xl mb-4 transform group-hover:scale-125 transition-transform duration-300">{stat.icon}</div>
+                  <p className="font-cinzel text-sm text-[#388697] uppercase tracking-wider">
+                    {stat.year} - {stat.label}
+                  </p>
+                  <p className="font-display text-4xl font-bold text-[#f5c422] mt-2 group-hover:scale-110 transition-transform duration-300">
+                    {stat.value}
+                  </p>
                 </div>
               </div>
             ))}
@@ -347,14 +352,15 @@ export default function Index() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
+            {/* Left - Logo Showcase */}
             <div ref={brochureLeftRef} className="flex justify-center opacity-0 transform -translate-x-20 scale-75">
               <div className="relative group">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#8EC4D9]/15 to-[#f5c422]/15 rounded-3xl blur-2xl group-hover:blur-3xl transition-all duration-500"></div>
-                <div className="relative bg-[#faf7f4] rounded-3xl p-8 shadow-lg border-2 border-[#f5c422] group-hover:border-[#388697] transition-all duration-500 overflow-hidden">
+                <div className="relative bg-[#faf7f4] rounded-3xl p-12 shadow-lg border-2 border-[#f5c422] group-hover:border-[#388697] transition-all duration-500">
                   <img
-                    src="https://i.pinimg.com/736x/e2/54/f2/e254f2e7d22a6aa35f02a67dd5e5e2df.jpg"
-                    alt="Brochure Pattern"
-                    className="w-full h-80 object-cover rounded-xl group-hover:scale-110 transition-transform duration-500"
+                    src="https://cdn.builder.io/api/v1/image/assets%2F7c19d5750a434083a19dfc82c5f593f4%2F2b1a5895495e4fb98781781147a0dfc0?format=webp&width=600"
+                    alt="Vakruta Logo"
+                    className="w-80 h-80 object-contain mx-auto group-hover:scale-110 transition-transform duration-500"
                   />
                   <p className="text-center font-cinzel text-[#15122e] font-semibold mt-6">
                     Vakruta - Symbol of Heritage
@@ -363,6 +369,7 @@ export default function Index() {
               </div>
             </div>
 
+            {/* Right - Brochure Info */}
             <div ref={brochureRightRef} className="space-y-6 opacity-0 transform translate-x-20 scale-75">
               <div className="bg-[#e8f3f7] rounded-2xl p-8 border border-[#8EC4D9] hover:shadow-xl transition-shadow duration-300">
                 <h3 className="font-display text-2xl font-bold text-[#f5c422] mb-4">
@@ -396,23 +403,25 @@ export default function Index() {
         </div>
       </section>
 
-      {/* CTA Section */}
+      {/* Gradient CTA Section with Grid Background */}
       <section 
         ref={ctaSectionRef}
         className="relative py-20 md:py-32 overflow-hidden opacity-0 transform scale-95"
       >
         <GridBackground className="absolute inset-0 bg-gradient-to-b from-[#f3e8dc] via-[#e8f3f7] to-[#d1e8f1]" />
         
-        <div className="absolute inset-0 opacity-30">
+        <div className="absolute inset-0">
           <img
-            src="https://i.pinimg.com/736x/e7/f4/3c/e7f43cd2d0fc7a6ed9e0e4ac6c80ffab.jpg"
-            alt="Pattern Background"
-            className="w-full h-full object-cover"
+            src="https://cdn.builder.io/api/v1/image/assets%2F7c19d5750a434083a19dfc82c5f593f4%2F7bd6f9d19eb849b583b1cfc21fd88993?format=webp&width=1400"
+            alt="Gradient Background"
+            className="w-full h-full object-cover opacity-30"
           />
         </div>
 
+        {/* Enhanced gradient overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-[#e8f3f7]/90 via-[#e8f3f7]/40 to-transparent"></div>
 
+        {/* Animated decorative elements */}
         <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-[#8EC4D9]/30 to-transparent rounded-full blur-3xl -ml-48 -mt-48 animate-pulse"></div>
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-[#f5c422]/20 to-transparent rounded-full blur-3xl -mr-48 -mb-48 animate-pulse" style={{animationDelay: '1s'}}></div>
 
@@ -452,12 +461,22 @@ export default function Index() {
           animation: float 3s ease-in-out infinite;
         }
 
+        @font-face {
+          font-family: 'Display';
+          src: local('Georgia'), local('serif');
+        }
+
+        @font-face {
+          font-family: 'Cinzel';
+          src: local('Georgia'), local('serif');
+        }
+
         .font-display {
-          font-family: Georgia, serif;
+          font-family: 'Display', Georgia, serif;
         }
 
         .font-cinzel {
-          font-family: Georgia, serif;
+          font-family: 'Cinzel', Georgia, serif;
         }
       `}</style>
     </div>
