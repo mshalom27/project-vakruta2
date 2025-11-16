@@ -308,6 +308,7 @@ export default function Index() {
             <h2 className="font-display text-5xl md:text-6xl font-bold text-[#f5c422] mb-4">
               Our Legacy
             </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#f5c422] to-transparent mx-auto mb-4"></div>
             <p className="font-cinzel text-xl text-[#15122e]">
               Celebrating Years of Excellence and Growth
             </p>
@@ -357,10 +358,11 @@ export default function Index() {
           <div className="flex flex-col items-center text-center mb-16">
             <h2
               ref={brochureHeadingRef}
-              className="font-display text-5xl md:text-6xl font-bold text-[#f5c422] mb-6 opacity-0 transform translate-y-12"
+              className="font-display text-5xl md:text-6xl font-bold text-[#f5c422] mb-4 opacity-0 transform translate-y-12"
             >
               Discover Our Brochure
             </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#f5c422] to-transparent mx-auto mb-6"></div>
             <p className="font-cinzel text-lg text-[#15122e] max-w-2xl">
               Explore the complete story of Vakruta through our comprehensive brochure,
               featuring detailed information about our heritage, achievements, and vision.
@@ -424,7 +426,7 @@ export default function Index() {
         ref={ctaSectionRef}
         className="relative py-20 md:py-32 overflow-hidden opacity-0 transform scale-95"
       >
-        <GridBackground className="absolute inset-0 bg-gradient-to-b from-[#f3e8dc] via-[#e8f3f7] to-[#d1e8f1]" />
+        <GridBackground className="absolute inset-0 bg-gradient-to-b from-[#f3e8dc] via-[#f3e8dc] to-[#e8dcc8]" />
 
         <div className="absolute inset-0">
           <img
@@ -435,16 +437,17 @@ export default function Index() {
         </div>
 
         {/* Enhanced gradient overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#e8f3f7]/90 via-[#e8f3f7]/40 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-[#f3e8dc]/90 via-[#f3e8dc]/40 to-transparent"></div>
 
         {/* Animated decorative elements */}
         <div className="absolute top-0 left-0 w-96 h-96 bg-gradient-to-br from-[#8EC4D9]/30 to-transparent rounded-full blur-3xl -ml-48 -mt-48 animate-pulse"></div>
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-gradient-to-tl from-[#f5c422]/20 to-transparent rounded-full blur-3xl -mr-48 -mb-48 animate-pulse" style={{ animationDelay: '1s' }}></div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-display text-4xl md:text-6xl font-bold text-[#f5c422] mb-6 leading-tight">
+          <h2 className="font-display text-4xl md:text-6xl font-bold text-[#f5c422] mb-4 leading-tight">
             Join the Vakruta Movement
           </h2>
+          <div className="w-24 h-1 bg-gradient-to-r from-transparent via-[#f5c422] to-transparent mx-auto mb-6"></div>
           <p className="font-cinzel text-lg md:text-xl text-[#15122e] max-w-3xl mx-auto mb-12 leading-relaxed">
             Be part of a growing community dedicated to preserving and celebrating
             the magnificent heritage of Indian civilization. Together, we honor the legacy
