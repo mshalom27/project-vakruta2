@@ -254,6 +254,11 @@ export default function Index() {
                 <div className="flex items-center justify-center md:justify-start gap-4 mb-4">
                   {/* Stylized crescent */}
                   
+                  <span className="font-cinzel text-xs uppercase tracking-[0.4em] text-[#388697]">
+                    NIT Rourkela Presents
+                  </span>
+                  {/* Stylized crescent mirrored */}
+                  
                 </div>
               </div>
 
