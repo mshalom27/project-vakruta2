@@ -2,8 +2,8 @@ import { useEffect, useRef } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-// Ornate Mughal Pattern Background
-const MughalPattern = ({
+// Islamic Geometric Pattern Background
+const IslamicPattern = ({
   children,
   className = "",
 }: {
@@ -12,28 +12,34 @@ const MughalPattern = ({
 }) => {
   return (
     <div className={`relative ${className}`}>
+      {/* Complex Islamic Star Pattern */}
       <div
-        className="absolute inset-0 opacity-5"
+        className="absolute inset-0 opacity-8"
         style={{
           backgroundImage: `
-            radial-gradient(circle at 25% 25%, rgba(245, 196, 34, 0.4) 2px, transparent 2px),
-            radial-gradient(circle at 75% 75%, rgba(56, 134, 151, 0.4) 2px, transparent 2px),
-            radial-gradient(circle at 25% 75%, rgba(245, 196, 34, 0.4) 2px, transparent 2px),
-            radial-gradient(circle at 75% 25%, rgba(56, 134, 151, 0.4) 2px, transparent 2px)
+            radial-gradient(circle at 50% 50%, rgba(245, 196, 34, 0.4) 1px, transparent 1px),
+            radial-gradient(circle at 0% 0%, rgba(56, 134, 151, 0.4) 1px, transparent 1px),
+            radial-gradient(circle at 100% 100%, rgba(245, 196, 34, 0.4) 1px, transparent 1px)
           `,
-          backgroundSize: '50px 50px',
+          backgroundSize: '40px 40px, 60px 60px, 50px 50px',
+          backgroundPosition: '0 0, 20px 20px, 10px 10px'
         }}
       />
-      <div
-        className="absolute inset-0 opacity-10"
-        style={{
-          backgroundImage: `
-            linear-gradient(45deg, transparent 48%, rgba(56, 134, 151, 0.2) 49%, rgba(56, 134, 151, 0.2) 51%, transparent 52%),
-            linear-gradient(-45deg, transparent 48%, rgba(245, 196, 34, 0.2) 49%, rgba(245, 196, 34, 0.2) 51%, transparent 52%)
-          `,
-          backgroundSize: '80px 80px',
-        }}
-      />
+      {/* Interlocking circles (common in Islamic art) */}
+      <div className="absolute inset-0 opacity-5">
+        <svg className="w-full h-full">
+          <defs>
+            <pattern id="islamic-circles" x="0" y="0" width="80" height="80" patternUnits="userSpaceOnUse">
+              <circle cx="40" cy="40" r="30" fill="none" stroke="#388697" strokeWidth="1.5" />
+              <circle cx="40" cy="40" r="20" fill="none" stroke="#f5c422" strokeWidth="1" />
+              <circle cx="40" cy="40" r="10" fill="none" stroke="#388697" strokeWidth="0.5" />
+              <path d="M 40,10 L 45,30 L 65,30 L 50,42 L 55,62 L 40,50 L 25,62 L 30,42 L 15,30 L 35,30 Z"
+                fill="none" stroke="#f5c422" strokeWidth="0.8" opacity="0.6" />
+            </pattern>
+          </defs>
+          <rect width="100%" height="100%" fill="url(#islamic-circles)" />
+        </svg>
+      </div>
       {children}
     </div>
   );
@@ -196,172 +202,301 @@ export default function Index() {
     <div className="min-h-screen bg-[#f3e8dc]">
       <Navbar />
 
-      {/* Hero Section - Mughal Palace Entrance */}
-      <section id="hero" className="relative overflow-hidden pt-20 pb-0">
-        {/* Ornate Arch Background */}
-        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-full max-w-[1400px] h-full opacity-10 pointer-events-none">
-          <svg viewBox="0 0 800 600" className="w-full h-full">
-            <path d="M 100,600 L 100,200 Q 100,50 250,50 L 350,50 Q 400,50 400,0 Q 400,50 450,50 L 550,50 Q 700,50 700,200 L 700,600"
-              fill="none" stroke="#388697" strokeWidth="3" />
-            <path d="M 120,600 L 120,210 Q 120,70 260,70 L 360,70 Q 400,70 400,30 Q 400,70 440,70 L 540,70 Q 680,70 680,210 L 680,600"
-              fill="none" stroke="#f5c422" strokeWidth="2" />
+      {/* Hero Section - Compact Islamic Architecture */}
+      <section id="hero" className="relative overflow-hidden pt-16 pb-12">
+        {/* Islamic Arch Pattern Background */}
+        <div className="absolute inset-0 opacity-5">
+          <svg className="w-full h-full" preserveAspectRatio="xMidYMid slice">
+            <defs>
+              <pattern id="islamic-arch" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
+                {/* Pointed Islamic Arch */}
+                <path d="M 50,150 L 50,100 Q 50,50 100,20 Q 150,50 150,100 L 150,150"
+                  fill="none" stroke="#388697" strokeWidth="2" opacity="0.6" />
+                {/* Inner arch detail */}
+                <path d="M 60,150 L 60,105 Q 60,65 100,40 Q 140,65 140,105 L 140,150"
+                  fill="none" stroke="#f5c422" strokeWidth="1.5" opacity="0.4" />
+                {/* Decorative star at apex */}
+                <path d="M 100,15 L 103,22 L 110,22 L 105,27 L 107,34 L 100,29 L 93,34 L 95,27 L 90,22 L 97,22 Z"
+                  fill="#388697" opacity="0.5" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#islamic-arch)" />
           </svg>
         </div>
 
-        <MughalPattern className="absolute inset-0" />
+        {/* Geometric Islamic Pattern Overlay */}
+        <div className="absolute inset-0 opacity-10">
+          <svg className="w-full h-full">
+            <defs>
+              <pattern id="islamic-star" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
+                <path d="M 30,5 L 35,20 L 50,20 L 38,28 L 43,43 L 30,35 L 17,43 L 22,28 L 10,20 L 25,20 Z"
+                  fill="none" stroke="#f5c422" strokeWidth="1.5" />
+                <circle cx="30" cy="30" r="3" fill="#388697" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#islamic-star)" />
+          </svg>
+        </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="min-h-[90vh] flex flex-col items-center justify-center text-center">
-            {/* Ornamental Header */}
-            <div className="mb-12">
-              <div className="flex items-center justify-center gap-6 mb-6">
-                <div className="w-16 h-px bg-gradient-to-r from-transparent via-[#388697] to-transparent"></div>
-                <svg width="30" height="30" viewBox="0 0 30 30" className="text-[#f5c422]">
-                  <path d="M15,2 L18,12 L28,12 L20,18 L23,28 L15,22 L7,28 L10,18 L2,12 L12,12 Z" fill="currentColor" />
-                </svg>
-                <span className="font-cinzel text-sm uppercase tracking-[0.4em] text-[#388697]">
-                  NIT Rourkela Presents
-                </span>
-                <svg width="30" height="30" viewBox="0 0 30 30" className="text-[#f5c422]">
-                  <path d="M15,2 L18,12 L28,12 L20,18 L23,28 L15,22 L7,28 L10,18 L2,12 L12,12 Z" fill="currentColor" />
-                </svg>
-                <div className="w-16 h-px bg-gradient-to-l from-transparent via-[#388697] to-transparent"></div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center py-8">
+            {/* Left: Title & Description */}
+            <div className="text-center md:text-left">
+              {/* Islamic Ornamental Header */}
+              <div className="mb-6">
+                <div className="flex items-center justify-center md:justify-start gap-4 mb-4">
+                  <svg width="24" height="24" viewBox="0 0 24 24" className="text-[#f5c422]">
+                    <path d="M12,2 L14,9 L21,9 L15,14 L17,21 L12,17 L7,21 L9,14 L3,9 L10,9 Z" fill="currentColor" />
+                  </svg>
+                  <span className="font-cinzel text-xs uppercase tracking-[0.4em] text-[#388697]">
+                    NIT Rourkela Presents
+                  </span>
+                  <svg width="24" height="24" viewBox="0 0 24 24" className="text-[#f5c422]">
+                    <path d="M12,2 L14,9 L21,9 L15,14 L17,21 L12,17 L7,21 L9,14 L3,9 L10,9 Z" fill="currentColor" />
+                  </svg>
+                </div>
               </div>
-            </div>
 
-            {/* Central Title with Ornate Frame */}
-            <div className="relative">
-              {/* Corner Decorations */}
-              <div className="absolute -top-8 -left-8 w-16 h-16 border-t-4 border-l-4 border-[#f5c422]"></div>
-              <div className="absolute -top-8 -right-8 w-16 h-16 border-t-4 border-r-4 border-[#f5c422]"></div>
-              <div className="absolute -bottom-8 -left-8 w-16 h-16 border-b-4 border-l-4 border-[#388697]"></div>
-              <div className="absolute -bottom-8 -right-8 w-16 h-16 border-b-4 border-r-4 border-[#388697]"></div>
-
-              <div className="px-16 py-12">
-                <h1
-                  ref={heroHeadingRef}
-                  className="font-display text-8xl md:text-9xl lg:text-[12rem] font-black text-[#15122e] leading-[0.85] mb-6 opacity-0 transform translate-y-8"
-                  style={{ letterSpacing: '0.05em' }}
-                >
-                  VAK<span className="text-[#f5c422]">RU</span>TA
-                </h1>
-
-                {/* Decorative Line */}
-                <div className="flex items-center justify-center gap-4 mb-8">
-                  <div className="w-24 h-1 bg-[#388697]"></div>
-                  <div className="w-4 h-4 rotate-45 border-2 border-[#f5c422]"></div>
-                  <div className="w-24 h-1 bg-[#388697]"></div>
+              {/* Main Title with Islamic Frame */}
+              <div className="relative inline-block mb-6">
+                {/* Islamic corner ornaments */}
+                <div className="absolute -top-4 -left-4 w-12 h-12 border-t-3 border-l-3 border-[#f5c422]">
+                  <div className="absolute top-0 left-0 w-3 h-3 bg-[#f5c422]"></div>
+                </div>
+                <div className="absolute -top-4 -right-4 w-12 h-12 border-t-3 border-r-3 border-[#388697]">
+                  <div className="absolute top-0 right-0 w-3 h-3 bg-[#388697]"></div>
+                </div>
+                <div className="absolute -bottom-4 -left-4 w-12 h-12 border-b-3 border-l-3 border-[#388697]">
+                  <div className="absolute bottom-0 left-0 w-3 h-3 bg-[#388697]"></div>
+                </div>
+                <div className="absolute -bottom-4 -right-4 w-12 h-12 border-b-3 border-r-3 border-[#f5c422]">
+                  <div className="absolute bottom-0 right-0 w-3 h-3 bg-[#f5c422]"></div>
                 </div>
 
-                <p
-                  ref={heroParagraphRef}
-                  className="font-cinzel text-2xl md:text-3xl text-[#15122e] leading-relaxed max-w-3xl mx-auto opacity-0 transform translate-y-8 italic"
-                >
-                  Where articulation meets intellect in the grand tradition of India's royal courts
-                </p>
-              </div>
-            </div>
-
-            {/* Ornate Image Frame */}
-            <div
-              ref={heroImageRef}
-              className="mt-16 relative opacity-0 transform translate-y-8"
-            >
-              <div className="relative inline-block">
-                {/* Multi-layered Border Frame */}
-                <div className="absolute -inset-4 bg-gradient-to-br from-[#388697] to-[#f5c422] opacity-30"></div>
-                <div className="absolute -inset-3 border-2 border-[#f5c422]"></div>
-                <div className="absolute -inset-2 border border-[#388697]"></div>
-
-                <div className="relative bg-[#15122e] p-3">
-                  <img
-                    src="https://cdn.builder.io/api/v1/image/assets%2F7c19d5750a434083a19dfc82c5f593f4%2F981caa52e21948b987df073157a54df3?format=webp&width=800"
-                    alt="Vakruta Pattern"
-                    className="w-full max-w-2xl h-80 object-cover"
-                  />
+                <div className="px-8 py-6 border-4 border-[#15122e]/20">
+                  <h1
+                    ref={heroHeadingRef}
+                    className="font-display text-6xl md:text-7xl lg:text-8xl font-black text-[#15122e] leading-[0.9] opacity-0 transform translate-y-8"
+                    style={{ letterSpacing: '0.08em' }}
+                  >
+                    VAK<span className="text-[#f5c422]">RU</span>TA
+                  </h1>
                 </div>
+              </div>
 
-                {/* Ornate Badge */}
-                <div className="absolute -bottom-6 left-1/2 transform -translate-x-1/2">
-                  <div className="relative">
-                    <div className="bg-[#f5c422] px-8 py-4 clip-hexagon relative">
-                      <div className="absolute inset-0 border-2 border-[#15122e] m-1"></div>
-                      <p className="font-display text-4xl font-bold text-[#15122e] relative z-10">2025</p>
-                    </div>
+              {/* Islamic decorative divider */}
+              <div className="flex items-center justify-center md:justify-start gap-3 mb-6">
+                <div className="w-16 h-px bg-[#388697]"></div>
+                <svg width="20" height="20" viewBox="0 0 20 20" className="text-[#f5c422]">
+                  <path d="M 10,2 L 18,10 L 10,18 L 2,10 Z" fill="currentColor" />
+                  <circle cx="10" cy="10" r="3" fill="#15122e" />
+                </svg>
+                <div className="w-16 h-px bg-[#388697]"></div>
+              </div>
+
+              <p
+                ref={heroParagraphRef}
+                className="font-cinzel text-lg md:text-xl text-[#15122e] leading-relaxed opacity-0 transform translate-y-8 italic mb-8"
+              >
+                Where articulation meets intellect in the grand tradition of India's royal courts
+              </p>
+
+              {/* Islamic Year Badge */}
+              <div className="flex justify-center md:justify-start mb-6">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-[#f5c422] transform rotate-45"></div>
+                  <div className="relative bg-[#15122e] m-1 px-6 py-3 border-2 border-[#f5c422]">
+                    <p className="font-display text-2xl font-black text-[#f5c422]">2025</p>
                   </div>
                 </div>
               </div>
+
+              {/* CTA Button */}
+              <div className="flex justify-center md:justify-start">
+                <button className="relative group">
+                  <div className="absolute inset-0 bg-[#f5c422] transform group-hover:scale-105 transition-transform duration-300"></div>
+                  <div className="relative bg-[#15122e] m-1 px-10 py-4 font-cinzel font-bold text-[#f5c422] uppercase tracking-[0.2em] group-hover:bg-[#f5c422] group-hover:text-[#15122e] transition-colors duration-300">
+                    <span className="inline-flex items-center gap-3">
+                      <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor">
+                        <path d="M9,2 L11,7 L16,7 L12,11 L13,16 L9,13 L5,16 L6,11 L2,7 L7,7 Z" />
+                      </svg>
+                      Sponsor Us
+                      <svg width="18" height="18" viewBox="0 0 18 18" fill="currentColor">
+                        <path d="M9,2 L11,7 L16,7 L12,11 L13,16 L9,13 L5,16 L6,11 L2,7 L7,7 Z" />
+                      </svg>
+                    </span>
+                  </div>
+                </button>
+              </div>
             </div>
 
-            {/* CTA Button */}
-            <div className="mt-20">
-              <button className="relative group">
-                <div className="absolute inset-0 bg-[#f5c422] transform group-hover:scale-105 transition-transform duration-300"></div>
-                <div className="relative bg-[#15122e] m-1 px-12 py-5 font-cinzel font-bold text-[#f5c422] uppercase tracking-[0.2em] group-hover:bg-[#f5c422] group-hover:text-[#15122e] transition-colors duration-300">
-                  <span className="inline-flex items-center gap-3">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M10,2 L12,8 L18,8 L13,12 L15,18 L10,14 L5,18 L7,12 L2,8 L8,8 Z" />
-                    </svg>
-                    Sponsor Us
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="currentColor">
-                      <path d="M10,2 L12,8 L18,8 L13,12 L15,18 L10,14 L5,18 L7,12 L2,8 L8,8 Z" />
-                    </svg>
-                  </span>
+            {/* Right: Ornate Islamic Frame Image */}
+            <div
+              ref={heroImageRef}
+              className="relative opacity-0 transform translate-y-8"
+            >
+              <div className="relative">
+                {/* Multi-layered Islamic Border */}
+                <div className="absolute -inset-6 border-4 border-[#f5c422] opacity-30"></div>
+                <div className="absolute -inset-4 border-2 border-[#388697]"></div>
+                <div className="absolute -inset-3 border border-[#f5c422] opacity-50"></div>
+
+                {/* Corner Stars */}
+                <div className="absolute -top-3 -left-3 z-10">
+                  <svg width="32" height="32" viewBox="0 0 32 32" className="text-[#f5c422]">
+                    <path d="M16,2 L19,12 L29,12 L21,18 L24,28 L16,22 L8,28 L11,18 L3,12 L13,12 Z" fill="currentColor" />
+                  </svg>
                 </div>
-              </button>
+                <div className="absolute -top-3 -right-3 z-10">
+                  <svg width="32" height="32" viewBox="0 0 32 32" className="text-[#388697]">
+                    <path d="M16,2 L19,12 L29,12 L21,18 L24,28 L16,22 L8,28 L11,18 L3,12 L13,12 Z" fill="currentColor" />
+                  </svg>
+                </div>
+                <div className="absolute -bottom-3 -left-3 z-10">
+                  <svg width="32" height="32" viewBox="0 0 32 32" className="text-[#388697]">
+                    <path d="M16,2 L19,12 L29,12 L21,18 L24,28 L16,22 L8,28 L11,18 L3,12 L13,12 Z" fill="currentColor" />
+                  </svg>
+                </div>
+                <div className="absolute -bottom-3 -right-3 z-10">
+                  <svg width="32" height="32" viewBox="0 0 32 32" className="text-[#f5c422]">
+                    <path d="M16,2 L19,12 L29,12 L21,18 L24,28 L16,22 L8,28 L11,18 L3,12 L13,12 Z" fill="currentColor" />
+                  </svg>
+                </div>
+
+                {/* Islamic arch overlay on image */}
+                <div className="relative bg-[#15122e] p-4">
+                  <div className="relative">
+                    <img
+                      src="https://cdn.builder.io/api/v1/image/assets%2F7c19d5750a434083a19dfc82c5f593f4%2F981caa52e21948b987df073157a54df3?format=webp&width=800"
+                      alt="Vakruta Pattern"
+                      className="w-full h-64 md:h-80 object-cover"
+                    />
+                    {/* Arch overlay */}
+                    <svg className="absolute top-0 left-0 w-full h-full pointer-events-none" preserveAspectRatio="none">
+                      <path d="M 0,100% L 0,30% Q 0,10% 20%,5% L 45%,5% Q 50%,5% 50%,0 Q 50%,5% 55%,5% L 80%,5% Q 100%,10% 100%,30% L 100%,100% Z"
+                        fill="none" stroke="#f5c422" strokeWidth="3" opacity="0.6" />
+                    </svg>
+                  </div>
+                </div>
+
+                {/* Decorative side patterns */}
+                <div className="absolute top-1/2 -left-6 transform -translate-y-1/2">
+                  <svg width="40" height="120" viewBox="0 0 40 120">
+                    <path d="M 10,20 Q 30,20 30,40 Q 30,60 10,60 Q 30,60 30,80 Q 30,100 10,100"
+                      fill="none" stroke="#388697" strokeWidth="2" />
+                  </svg>
+                </div>
+                <div className="absolute top-1/2 -right-6 transform -translate-y-1/2">
+                  <svg width="40" height="120" viewBox="0 0 40 120">
+                    <path d="M 30,20 Q 10,20 10,40 Q 10,60 30,60 Q 10,60 10,80 Q 10,100 30,100"
+                      fill="none" stroke="#f5c422" strokeWidth="2" />
+                  </svg>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+
+        {/* Bottom Islamic Border Pattern */}
+        <div className="absolute bottom-0 left-0 right-0 h-4 overflow-hidden">
+          <svg className="w-full h-full" preserveAspectRatio="none">
+            <pattern id="bottom-pattern" x="0" y="0" width="60" height="20" patternUnits="userSpaceOnUse">
+              <path d="M 0,10 L 15,0 L 30,10 L 45,0 L 60,10 L 60,20 L 0,20 Z" fill="#388697" opacity="0.2" />
+            </pattern>
+            <rect width="100%" height="100%" fill="url(#bottom-pattern)" />
+          </svg>
+        </div>
       </section>
 
-      {/* About Us Section - Palace Corridor Style */}
+      {/* About Us Section - Islamic Garden Paradise */}
       <section
         id="about"
         className="py-24 md:py-32 bg-[#15122e] relative overflow-hidden"
       >
-        <MughalPattern className="absolute inset-0" />
+        <IslamicPattern className="absolute inset-0" />
 
-        {/* Ornate Border Pattern */}
-        <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-transparent via-[#f5c422] to-transparent"></div>
-        <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-transparent via-[#388697] to-transparent"></div>
+        {/* Islamic Geometric Border - Top */}
+        <div className="absolute top-0 left-0 right-0 h-8 overflow-hidden">
+          <svg className="w-full h-full" preserveAspectRatio="none">
+            <defs>
+              <pattern id="top-islamic-border" x="0" y="0" width="80" height="40" patternUnits="userSpaceOnUse">
+                {/* Interlocking arches */}
+                <path d="M 0,40 L 0,20 Q 0,5 20,0 Q 40,5 40,20 L 40,40" fill="#f5c422" opacity="0.3" />
+                <path d="M 40,40 L 40,20 Q 40,5 60,0 Q 80,5 80,20 L 80,40" fill="#388697" opacity="0.3" />
+                {/* Stars */}
+                <path d="M 20,5 L 22,10 L 27,10 L 23,13 L 25,18 L 20,15 L 15,18 L 17,13 L 13,10 L 18,10 Z"
+                  fill="#f5c422" opacity="0.6" />
+                <path d="M 60,5 L 62,10 L 67,10 L 63,13 L 65,18 L 60,15 L 55,18 L 57,13 L 53,10 L 58,10 Z"
+                  fill="#388697" opacity="0.6" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#top-islamic-border)" />
+          </svg>
+        </div>
+
+        {/* Islamic Geometric Border - Bottom */}
+        <div className="absolute bottom-0 left-0 right-0 h-8 overflow-hidden transform rotate-180">
+          <svg className="w-full h-full" preserveAspectRatio="none">
+            <rect width="100%" height="100%" fill="url(#top-islamic-border)" />
+          </svg>
+        </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          {/* Ornate Section Header */}
+          {/* Islamic Section Header */}
           <div className="text-center mb-20">
             <div
               ref={aboutHeadingRef}
               className="opacity-0 transform translate-y-8"
             >
-              <div className="flex items-center justify-center gap-4 mb-6">
-                <div className="w-12 h-12 border-2 border-[#f5c422] rotate-45"></div>
+              <div className="flex items-center justify-center gap-6 mb-6">
+                {/* Islamic 8-pointed star */}
+                <svg width="40" height="40" viewBox="0 0 40 40" className="text-[#f5c422]">
+                  <path d="M 20,0 L 24,12 L 36,8 L 28,20 L 40,24 L 28,28 L 36,40 L 24,36 L 20,48 L 16,36 L 4,40 L 12,28 L 0,24 L 12,20 L 4,8 L 16,12 Z"
+                    fill="currentColor" opacity="0.8" />
+                  <circle cx="20" cy="24" r="6" fill="#15122e" />
+                </svg>
                 <span className="font-cinzel text-xs uppercase tracking-[0.5em] text-[#f5c422]">
                   About the Tournament
                 </span>
-                <div className="w-12 h-12 border-2 border-[#f5c422] rotate-45"></div>
+                <svg width="40" height="40" viewBox="0 0 40 40" className="text-[#f5c422]">
+                  <path d="M 20,0 L 24,12 L 36,8 L 28,20 L 40,24 L 28,28 L 36,40 L 24,36 L 20,48 L 16,36 L 4,40 L 12,28 L 0,24 L 12,20 L 4,8 L 16,12 Z"
+                    fill="currentColor" opacity="0.8" />
+                  <circle cx="20" cy="24" r="6" fill="#15122e" />
+                </svg>
               </div>
               <h2 className="font-display text-7xl md:text-8xl font-black text-[#f5c422] leading-tight mb-6">
                 The Art of Argument
               </h2>
+              {/* Islamic knot pattern divider */}
               <div className="flex items-center justify-center gap-3">
-                <div className="w-32 h-px bg-[#388697]"></div>
-                <div className="w-3 h-3 bg-[#f5c422]"></div>
-                <div className="w-32 h-px bg-[#388697]"></div>
+                <svg width="120" height="20" viewBox="0 0 120 20">
+                  <path d="M 0,10 Q 15,0 30,10 T 60,10 T 90,10 T 120,10"
+                    fill="none" stroke="#388697" strokeWidth="2" />
+                  <path d="M 0,10 Q 15,20 30,10 T 60,10 T 90,10 T 120,10"
+                    fill="none" stroke="#f5c422" strokeWidth="1.5" />
+                </svg>
               </div>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-            {/* Left: Ornate Image Frame */}
+            {/* Left: Islamic Archway Frame */}
             <div
               ref={aboutImageRef}
               className="opacity-0 transform translate-y-8"
             >
               <div className="relative">
-                {/* Decorative Frame */}
-                <div className="absolute -inset-6 border-2 border-[#f5c422] opacity-50"></div>
-                <div className="absolute -inset-4 border border-[#388697] opacity-70"></div>
+                {/* Islamic pointed arch frame */}
+                <div className="absolute -inset-4 z-0">
+                  <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
+                    <path d="M 5,100 L 5,40 Q 5,10 25,5 L 45,5 Q 50,5 50,0 Q 50,5 55,5 L 75,5 Q 95,10 95,40 L 95,100 Z"
+                      fill="none" stroke="#f5c422" strokeWidth="2" />
+                    <path d="M 10,100 L 10,42 Q 10,15 27,10 L 46,10 Q 50,10 50,5 Q 50,10 54,10 L 73,10 Q 90,15 90,42 L 90,100 Z"
+                      fill="none" stroke="#388697" strokeWidth="1.5" />
+                  </svg>
+                </div>
 
-                <div className="relative bg-[#f5c422] p-2">
+                <div className="relative bg-[#f5c422] p-2 border-4 border-[#388697]">
                   <img
                     src="https://cdn.builder.io/api/v1/image/assets%2F7c19d5750a434083a19dfc82c5f593f4%2F14012f80d4794515a0272d68adccc272?format=webp&width=500"
                     alt="Indian Architecture"
@@ -369,46 +504,75 @@ export default function Index() {
                   />
                 </div>
 
-                {/* Ornamental Corner Accents */}
-                <div className="absolute -top-4 -left-4 w-8 h-8">
-                  <div className="w-full h-full border-t-4 border-l-4 border-[#f5c422]"></div>
+                {/* Islamic Star Corner Ornaments */}
+                <div className="absolute -top-4 -left-4 z-10">
+                  <svg width="32" height="32" viewBox="0 0 32 32" className="text-[#f5c422]">
+                    <path d="M 16,0 L 19,10 L 29,7 L 22,16 L 32,19 L 22,22 L 29,32 L 19,29 L 16,39 L 13,29 L 3,32 L 10,22 L 0,19 L 10,16 L 3,7 L 13,10 Z"
+                      fill="currentColor" />
+                  </svg>
                 </div>
-                <div className="absolute -top-4 -right-4 w-8 h-8">
-                  <div className="w-full h-full border-t-4 border-r-4 border-[#388697]"></div>
+                <div className="absolute -top-4 -right-4 z-10">
+                  <svg width="32" height="32" viewBox="0 0 32 32" className="text-[#388697]">
+                    <path d="M 16,0 L 19,10 L 29,7 L 22,16 L 32,19 L 22,22 L 29,32 L 19,29 L 16,39 L 13,29 L 3,32 L 10,22 L 0,19 L 10,16 L 3,7 L 13,10 Z"
+                      fill="currentColor" />
+                  </svg>
                 </div>
-                <div className="absolute -bottom-4 -left-4 w-8 h-8">
-                  <div className="w-full h-full border-b-4 border-l-4 border-[#388697]"></div>
+                <div className="absolute -bottom-4 -left-4 z-10">
+                  <svg width="32" height="32" viewBox="0 0 32 32" className="text-[#388697]">
+                    <path d="M 16,0 L 19,10 L 29,7 L 22,16 L 32,19 L 22,22 L 29,32 L 19,29 L 16,39 L 13,29 L 3,32 L 10,22 L 0,19 L 10,16 L 3,7 L 13,10 Z"
+                      fill="currentColor" />
+                  </svg>
                 </div>
-                <div className="absolute -bottom-4 -right-4 w-8 h-8">
-                  <div className="w-full h-full border-b-4 border-r-4 border-[#f5c422]"></div>
+                <div className="absolute -bottom-4 -right-4 z-10">
+                  <svg width="32" height="32" viewBox="0 0 32 32" className="text-[#f5c422]">
+                    <path d="M 16,0 L 19,10 L 29,7 L 22,16 L 32,19 L 22,22 L 29,32 L 19,29 L 16,39 L 13,29 L 3,32 L 10,22 L 0,19 L 10,16 L 3,7 L 13,10 Z"
+                      fill="currentColor" />
+                  </svg>
                 </div>
               </div>
             </div>
 
-            {/* Center & Right: Content with Royal Styling */}
+            {/* Center & Right: Content with Islamic Calligraphy Style */}
             <div className="md:col-span-2">
               <div
                 ref={aboutTextRef}
                 className="space-y-8 opacity-0 transform translate-y-8"
               >
-                {/* Text Blocks with Ornate Borders */}
+                {/* Text Blocks with Islamic Borders */}
                 <div className="relative bg-gradient-to-r from-[#388697]/20 to-transparent p-8 border-l-4 border-[#f5c422]">
-                  <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-[#f5c422]"></div>
+                  {/* Decorative Islamic corners */}
+                  <div className="absolute top-0 left-0 w-8 h-8">
+                    <svg viewBox="0 0 32 32" className="w-full h-full text-[#f5c422]">
+                      <path d="M 0,0 L 0,16 Q 0,32 16,32 L 32,32" fill="none" stroke="currentColor" strokeWidth="2" />
+                    </svg>
+                  </div>
                   <p className="font-cinzel text-lg text-[#f3e8dc] leading-relaxed">
                     Vakruta is NIT Rourkela's flagship Asian Parliamentary Debate tournament, bringing together the brightest minds from institutions across India in a celebration of eloquence and intellect.
                   </p>
-                  <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-[#388697]"></div>
+                  <div className="absolute bottom-0 right-0 w-8 h-8">
+                    <svg viewBox="0 0 32 32" className="w-full h-full text-[#388697]">
+                      <path d="M 32,32 L 32,16 Q 32,0 16,0 L 0,0" fill="none" stroke="currentColor" strokeWidth="2" />
+                    </svg>
+                  </div>
                 </div>
 
                 <div className="relative bg-gradient-to-l from-[#f5c422]/20 to-transparent p-8 border-r-4 border-[#388697]">
-                  <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-[#388697]"></div>
+                  <div className="absolute top-0 right-0 w-8 h-8">
+                    <svg viewBox="0 0 32 32" className="w-full h-full text-[#388697]">
+                      <path d="M 32,0 L 32,16 Q 32,32 16,32 L 0,32" fill="none" stroke="currentColor" strokeWidth="2" />
+                    </svg>
+                  </div>
                   <p className="font-cinzel text-lg text-[#f3e8dc] leading-relaxed">
                     Through rigorous debate rounds, engaging workshops, and competitive spirit, Vakruta cultivates eloquence, analytical thinking, and the ability to articulate complex ideas with clarity and conviction.
                   </p>
-                  <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-[#f5c422]"></div>
+                  <div className="absolute bottom-0 left-0 w-8 h-8">
+                    <svg viewBox="0 0 32 32" className="w-full h-full text-[#f5c422]">
+                      <path d="M 0,32 L 0,16 Q 0,0 16,0 L 32,0" fill="none" stroke="currentColor" strokeWidth="2" />
+                    </svg>
+                  </div>
                 </div>
 
-                {/* Decorative Stats Row */}
+                {/* Islamic Geometric Stats */}
                 <div className="grid grid-cols-3 gap-6 mt-12">
                   {[
                     { num: "100+", label: "Debaters", color: "#f5c422" },
@@ -416,27 +580,43 @@ export default function Index() {
                     { num: "3", label: "Days", color: "#f5c422" }
                   ].map((stat, i) => (
                     <div key={i} className="text-center relative group">
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#388697]/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      {/* Islamic star background */}
+                      <div className="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-20 transition-opacity">
+                        <svg width="100" height="100" viewBox="0 0 100 100">
+                          <path d="M 50,5 L 58,35 L 88,28 L 65,50 L 95,58 L 65,66 L 88,88 L 58,81 L 50,111 L 42,81 L 12,88 L 35,66 L 5,58 L 35,50 L 12,28 L 42,35 Z"
+                            fill="currentColor" style={{ color: stat.color }} />
+                        </svg>
+                      </div>
                       <div className="relative border-2 border-[#f3e8dc]/20 p-6 hover:border-[#f5c422] transition-colors duration-300">
-                        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4 h-4 rotate-45" style={{ backgroundColor: stat.color }}></div>
+                        <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                          <svg width="20" height="20" viewBox="0 0 20 20" style={{ color: stat.color }}>
+                            <path d="M 10,0 L 12,6 L 18,5 L 14,10 L 20,12 L 14,14 L 18,19 L 12,18 L 10,24 L 8,18 L 2,19 L 6,14 L 0,12 L 6,10 L 2,5 L 8,6 Z"
+                              fill="currentColor" />
+                          </svg>
+                        </div>
                         <p className="font-display text-5xl font-black mb-2" style={{ color: stat.color }}>
                           {stat.num}
                         </p>
                         <p className="font-cinzel text-xs uppercase tracking-widest text-[#f3e8dc]">
                           {stat.label}
                         </p>
-                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 w-4 h-4 rotate-45 bg-[#388697]"></div>
+                        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2">
+                          <svg width="20" height="20" viewBox="0 0 20 20" className="text-[#388697]">
+                            <path d="M 10,0 L 12,6 L 18,5 L 14,10 L 20,12 L 14,14 L 18,19 L 12,18 L 10,24 L 8,18 L 2,19 L 6,14 L 0,12 L 6,10 L 2,5 L 8,6 Z"
+                              fill="currentColor" />
+                          </svg>
+                        </div>
                       </div>
                     </div>
                   ))}
                 </div>
 
-                {/* Format Badge */}
+                {/* Islamic Cartouche Badge */}
                 <div className="mt-12 text-center">
                   <div className="inline-block relative">
-                    <div className="absolute inset-0 bg-[#f5c422] transform rotate-2"></div>
-                    <div className="relative bg-[#15122e] border-2 border-[#f5c422] px-10 py-4">
-                      <p className="font-cinzel text-sm uppercase tracking-[0.3em] text-[#f5c422]">
+                    <div className="absolute inset-0 bg-[#f5c422] transform skew-x-12"></div>
+                    <div className="relative bg-[#15122e] border-2 border-[#f5c422] px-10 py-4 skew-x-12">
+                      <p className="font-cinzel text-sm uppercase tracking-[0.3em] text-[#f5c422] -skew-x-12">
                         Asian Parliamentary Format
                       </p>
                     </div>
@@ -765,7 +945,7 @@ export default function Index() {
         </div>
 
         {/* Decorative Pattern Overlay */}
-        <MughalPattern className="absolute inset-0 opacity-50" />
+        <IslamicPattern className="absolute inset-0 opacity-50" />
 
         {/* Top Border Decoration */}
         <div className="absolute top-0 left-0 right-0 flex justify-center gap-6 py-6">
