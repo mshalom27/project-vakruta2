@@ -5,7 +5,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gradient-to-b from-[#15122e] to-[#0f0c22] text-white mt-20 relative">
+    <footer className="bg-gradient-to-b from-[#15122e] to-[#0f0c22] text-white mt-0 relative">
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#f5c422] to-transparent"></div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
