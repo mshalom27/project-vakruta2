@@ -221,12 +221,12 @@ export default function Index() {
       </section>
 
       {/* Brochure Section */}
-      <section id="brochure" className="py-20 md:py-32 bg-white border-t border-blue-100">
+      <section id="brochure" className="py-20 md:py-32 bg-[#f3e8dc] border-t border-[#e8dcc8]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col items-center text-center mb-16">
             <h2
               ref={brochureHeadingRef}
-              className="font-display text-5xl md:text-6xl font-bold text-blue-900 mb-6"
+              className="font-display text-5xl md:text-6xl font-bold text-[#f5c422] mb-6"
             >
               Discover Our Brochure
             </h2>
