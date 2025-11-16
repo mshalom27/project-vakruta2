@@ -289,7 +289,7 @@ export default function Index() {
               </button>
 
               <p className="text-center font-cinzel text-sm text-[#388697]">
-                PDF format • 5.2 MB • Available in English & Hindi
+                PDF format • 5.2 MB �� Available in English & Hindi
               </p>
             </div>
           </div>
@@ -322,7 +322,7 @@ export default function Index() {
             the magnificent heritage of Indian civilization. Together, we honor the legacy
             of Mughal artistry and timeless cultural traditions.
           </p>
-          <button className="bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white font-display font-bold text-lg px-12 py-4 rounded-xl shadow-xl transition-all transform hover:scale-105">
+          <button className="bg-gradient-to-r from-[#f5c422] to-[#d4a913] hover:from-[#d4a913] hover:to-[#b39409] text-[#15122e] font-display font-bold text-lg px-12 py-4 rounded-xl shadow-xl transition-all transform hover:scale-105">
             Get Involved Today
           </button>
         </div>
