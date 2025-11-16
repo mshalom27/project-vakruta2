@@ -1023,7 +1023,7 @@ export default function Index() {
       </div>
     </div>
   </div>
-</section>
+
         {/* Bottom Decorative Border */}
         <div className="absolute bottom-0 left-0 right-0 flex justify-center gap-4 py-4">
           {[...Array(8)].map((_, i) => (
