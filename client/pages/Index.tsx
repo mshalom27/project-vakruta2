@@ -24,35 +24,7 @@ const GridBackground = ({
   );
 };
 
-// Navbar Component
-const Navbar = () => {
-  return (
-    <nav className="bg-[#15122e] text-white py-4 sticky top-0 z-50 shadow-lg">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
-        <div className="text-2xl font-bold text-[#f5c422]">Vakruta</div>
-        <div className="hidden md:flex gap-8">
-          <a href="#hero" className="hover:text-[#f5c422] transition-colors">Home</a>
-          <a href="#about" className="hover:text-[#f5c422] transition-colors">About</a>
-          <a href="#statistics" className="hover:text-[#f5c422] transition-colors">Highlights</a>
-          <a href="#brochure" className="hover:text-[#f5c422] transition-colors">Brochure</a>
-        </div>
-      </div>
-    </nav>
-  );
-};
 
-// Footer Component
-const Footer = () => {
-  return (
-    <footer className="bg-[#15122e] text-white py-8">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <p className="text-[#f5c422] font-bold text-xl mb-2">Vakruta</p>
-        <p className="text-sm">NIT Rourkela's Premier Asian Parliamentary Debate Tournament</p>
-        <p className="text-xs mt-4 text-gray-400">© 2025 Vakruta. All rights reserved.</p>
-      </div>
-    </footer>
-  );
-};
 
 export default function Index() {
   const heroHeadingRef = useRef<HTMLHeadingElement>(null);
