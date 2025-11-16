@@ -127,8 +127,8 @@ export default function Index() {
         </div>
 
         {/* Decorative Elements */}
-        <div className="absolute top-10 right-10 w-32 h-32 border-2 border-amber-400/20 rounded-full opacity-40"></div>
-        <div className="absolute bottom-20 left-5 w-24 h-24 border border-blue-400/20 rounded-lg opacity-20 transform rotate-45"></div>
+        <div className="absolute top-10 right-10 w-32 h-32 border-2 border-[#f5c422]/20 rounded-full opacity-40"></div>
+        <div className="absolute bottom-20 left-5 w-24 h-24 border border-[#8EC4D9]/20 rounded-lg opacity-20 transform rotate-45"></div>
       </section>
 
       {/* About Us Section */}
