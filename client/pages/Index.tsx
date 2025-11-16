@@ -199,7 +199,7 @@ export default function Index() {
           <div className="flex-1 z-10">
             <h1
               ref={heroHeadingRef}
-              className="font-display text-5xl md:text-7xl font-bold text-[#f5c422] mb-6 leading-tight"
+              className="font-display text-5xl md:text-7xl font-bold text-[#f5c422] mb-6 leading-tight whitespace-nowrap"
             >
               Welcome to Vakruta
             </h1>
