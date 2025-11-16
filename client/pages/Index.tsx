@@ -1092,7 +1092,7 @@ export default function Index() {
                 </div>
 
                 <div className="px-20 py-12">
-                  <h2 className="font-display text-8xl md:text-[10rem] font-black text-[#f5c422] leading-[0.9]">
+                  <h2 className="font-display text-8xl md:text-[10rem] font-black text-[#f5c422] leading-[0.9] whitespace-nowrap">
                     VAKRUTA
                   </h2>
                   <div className="flex items-center justify-center gap-4 my-6">
