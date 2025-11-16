@@ -72,7 +72,7 @@ export default function Navbar() {
           {/* Mobile Hamburger */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className="md:hidden flex flex-col gap-1.5 w-8 h-8 justify-center"
+            className="md:hidden flex flex-col gap-1.5 w-8 h-8 justify-center z-[60]"
           >
             <div className={`w-full h-0.5 bg-[#f5c422] transition ${isOpen ? "rotate-45 translate-y-2" : ""}`}></div>
             <div className={`w-full h-0.5 bg-[#388697] transition ${isOpen ? "opacity-0" : ""}`}></div>
@@ -81,9 +81,17 @@ export default function Navbar() {
         </div>
       </div>
 
+      {/* Backdrop (close on click) */}
+      {isOpen && (
+        <div
+          onClick={() => setIsOpen(false)}
+          className="fixed inset-0 bg-black/40 backdrop-blur-sm md:hidden z-40"
+        ></div>
+      )}
+
       {/* Mobile Menu Slide Panel */}
       <div
-        className={`fixed top-0 right-0 h-full w-64 bg-[#15122e] border-l border-[#f5c422] transform transition-transform duration-300 md:hidden ${isOpen ? "translate-x-0" : "translate-x-full"
+        className={`fixed top-0 right-0 h-full w-64 bg-[#15122e] border-l border-[#f5c422] transform transition-transform duration-300 md:hidden z-50 ${isOpen ? "translate-x-0" : "translate-x-full"
           }`}
       >
         <div className="flex flex-col items-start px-6 pt-28 gap-6">
@@ -108,14 +116,6 @@ export default function Navbar() {
           </button>
         </div>
       </div>
-
-      {/* Backdrop (close on click) */}
-      {isOpen && (
-        <div
-          onClick={() => setIsOpen(false)}
-          className="fixed inset-0 bg-black/40 backdrop-blur-sm md:hidden"
-        ></div>
-      )}
 
       {/* Decorative bottom strip */}
       <div className="h-1 w-full flex">
