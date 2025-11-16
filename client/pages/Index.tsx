@@ -1016,7 +1016,7 @@ export default function Index() {
 
               <button className="relative group">
                 <div className="absolute inset-0 bg-[#f5c422] transform group-hover:scale-105 transition-transform duration-300"></div>
-                <div className="relative bg-[#15122e] m-2 px-16 py-7 font-display font-black text-2xl text-[#f5c422] uppercase tracking-[0.3em] group-hover:bg-[#f5c422] group-hover:text-[#15122e] transition-colors duration-300">
+                <div className="relative bg-[#15122e] m-2 px-16 py-7 font-display font-black text-3xl text-[#f5c422] uppercase tracking-[0.3em] group-hover:bg-[#f5c422] group-hover:text-[#15122e] transition-colors duration-300">
                   <span className="inline-flex items-center gap-4">
                     <svg width="28" height="28" viewBox="0 0 28 28" fill="currentColor">
                       <path d="M 14,2 Q 9,2 9,14 Q 9,26 14,26 Q 11,26 11,14 Q 11,2 14,2 Z" />
