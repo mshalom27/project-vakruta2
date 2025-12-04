@@ -948,10 +948,10 @@ export default function Index() {
                 </div>
 
                 {/* Islamic Geometric Stats with Star Patterns */}
-                <div className="grid grid-cols-3 gap-6 mt-12">
+                <div className="grid grid-cols-3 gap-6 mt-12 whitespace-nowrap">
                   {[
                     { num: "100+", label: "Debaters", color: "#f5c422" },
-                    { num: "20+", label: "Rounds", color: "#388697" },
+                    { num: "50+", label: "Rounds", color: "#388697" },
                     { num: "3", label: "Days", color: "#f5c422" },
                   ].map((stat, i) => (
                     <div key={i} className="text-center relative group">
@@ -1034,9 +1034,9 @@ export default function Index() {
         </div>
       </section>
 
-      {/* Statistics Section - Royal Treasury */}
+     {/* Sponsors Section - Royal Patronage */}
       <section
-        id="statistics"
+        id="sponsors"
         className="py-24 md:py-32 bg-[#f3e8dc] relative overflow-hidden"
       >
         {/* Ornate Background Pattern */}
@@ -1058,14 +1058,14 @@ export default function Index() {
               <div className="relative">
                 <div className="absolute inset-0 border-2 border-[#f5c422] rotate-45"></div>
                 <span className="relative block font-cinzel text-xs uppercase tracking-[0.5em] text-[#388697] px-8 py-3">
-                  Our Legacy
+                  Royal Patronage
                 </span>
               </div>
               <div className="flex-1 h-px bg-gradient-to-l from-transparent to-[#388697]"></div>
             </div>
 
             <h2 className="font-display text-7xl md:text-9xl font-black text-[#15122e] leading-none mb-6">
-              BY THE NUMBERS
+              OUR SPONSORS
             </h2>
 
             <div className="flex items-center justify-center gap-4">
@@ -1107,137 +1107,170 @@ export default function Index() {
             </div>
           </div>
 
-          {/* Ornate Stats Cards */}
+          {/* Sponsors Grid */}
           <div
             ref={statsCardsRef}
-            className="grid grid-cols-1 md:grid-cols-2 gap-12"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12"
           >
             {[
               {
-                year: "2025",
-                label: "Registrations",
-                value: "2,847",
-                image:
-                  "https://cdn.builder.io/api/v1/image/assets%2F7c19d5750a434083a19dfc82c5f593f4%2F4324065880c44c3789e791aabb29ea65?format=webp&width=600",
+                name: "FabLabs",
+                // requested file: fablabs_logo
+                logo: "/sponsors/fablabs_logo.jpg",
                 accent: "#f5c422",
               },
               {
-                year: "2025",
-                label: "Sponsorships",
-                value: "₹1.8 Cr",
-                image:
-                  "https://cdn.builder.io/api/v1/image/assets%2F7c19d5750a434083a19dfc82c5f593f4%2F1028d674e84843efbbe3ef684c03bbd2?format=webp&width=600",
+                name: "Fanatixx",
+                // requested file: fx icon bubbly(1)
+                logo: "/sponsors/FX ICON BUBBLY(1).png",
                 accent: "#388697",
               },
-            ].map((stat, idx) => (
+              {
+                name: "Efestoo",
+                // requested file: logo_with_name
+                logo: "/sponsors/logo_with_name.webp",
+                accent: "#f5c422",
+              },
+            ].map((sponsor, idx) => (
               <div key={idx} className="relative group">
                 {/* Ornate Frame Structure */}
                 <div className="relative">
                   {/* Multi-layer Border */}
-                  <div className="absolute -inset-6 border-4 border-[#15122e] opacity-20"></div>
+                  <div className="absolute -inset-4 border-2 border-[#15122e] opacity-20"></div>
                   <div
-                    className="absolute -inset-4 border-2"
-                    style={{ borderColor: stat.accent }}
+                    className="absolute -inset-3 border-2"
+                    style={{ borderColor: sponsor.accent }}
                   ></div>
-                  <div className="absolute -inset-3 border border-[#15122e] opacity-40"></div>
+                  <div className="absolute -inset-2 border border-[#15122e] opacity-40"></div>
 
                   {/* Corner Ornaments */}
                   <div
-                    className="absolute -top-4 -left-4 w-12 h-12 border-t-4 border-l-4"
-                    style={{ borderColor: stat.accent }}
+                    className="absolute -top-3 -left-3 w-10 h-10 border-t-3 border-l-3"
+                    style={{ borderColor: sponsor.accent }}
                   ></div>
                   <div
-                    className="absolute -top-4 -right-4 w-12 h-12 border-t-4 border-r-4"
-                    style={{ borderColor: stat.accent }}
+                    className="absolute -top-3 -right-3 w-10 h-10 border-t-3 border-r-3"
+                    style={{ borderColor: sponsor.accent }}
                   ></div>
                   <div
-                    className="absolute -bottom-4 -left-4 w-12 h-12 border-b-4 border-l-4"
-                    style={{ borderColor: stat.accent }}
+                    className="absolute -bottom-3 -left-3 w-10 h-10 border-b-3 border-l-3"
+                    style={{ borderColor: sponsor.accent }}
                   ></div>
                   <div
-                    className="absolute -bottom-4 -right-4 w-12 h-12 border-b-4 border-r-4"
-                    style={{ borderColor: stat.accent }}
+                    className="absolute -bottom-3 -right-3 w-10 h-10 border-b-3 border-r-3"
+                    style={{ borderColor: sponsor.accent }}
                   ></div>
 
-                  {/* Image Container */}
-                  <div className="relative h-[500px] overflow-hidden bg-[#15122e] p-3">
-                    <img
-                      src={stat.image}
-                      alt={stat.label}
-                      className="w-full h-full object-cover sepia-[0.3] group-hover:sepia-0 transition-all duration-700"
-                    />
+                  {/* Logo Container */}
+                  <div className="relative h-[280px] overflow-hidden bg-white p-8 flex items-center justify-center group-hover:bg-[#f3e8dc] transition-all duration-500">
+                    {/* Decorative Background Pattern */}
+                    <div className="absolute inset-0 opacity-5">
+                      <svg className="w-full h-full">
+                        <pattern
+                          id={`pattern-${idx}`}
+                          x="0"
+                          y="0"
+                          width="40"
+                          height="40"
+                          patternUnits="userSpaceOnUse"
+                        >
+                          <circle cx="20" cy="20" r="1.5" fill={sponsor.accent} />
+                          <path
+                            d="M 20,10 L 30,20 L 20,30 L 10,20 Z"
+                            fill="none"
+                            stroke={sponsor.accent}
+                            strokeWidth="0.5"
+                          />
+                        </pattern>
+                        <rect width="100%" height="100%" fill={`url(#pattern-${idx})`} />
+                      </svg>
+                    </div>
 
-                    {/* Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#15122e] via-[#15122e]/60 to-transparent"></div>
-
-                    {/* Content Overlay */}
-                    <div className="absolute bottom-0 left-0 right-0 p-8">
-                      <div className="relative">
-                        {/* Decorative Top Border */}
-                        <div className="flex items-center gap-2 mb-6">
-                          <div
-                            className="w-3 h-3 rotate-45"
-                            style={{ backgroundColor: stat.accent }}
-                          ></div>
-                          <div
-                            className="flex-1 h-px"
-                            style={{ backgroundColor: stat.accent }}
-                          ></div>
-                          <div
-                            className="w-3 h-3 rotate-45"
-                            style={{ backgroundColor: stat.accent }}
-                          ></div>
+                    {/* Logo Placeholder */}
+                    <div className="relative z-10 w-full h-full flex items-center justify-center">
+                      <div className="text-center">
+                        <div
+                          className="w-32 h-32 mx-auto mb-4 rounded-full border-4 flex items-center justify-center overflow-hidden bg-white"
+                          style={{ borderColor: sponsor.accent }}
+                        >
+                          <img
+                            src={sponsor.logo}
+                            alt={`${sponsor.name} logo`}
+                            className="w-full h-full object-contain"
+                          />
                         </div>
-
-                        <p className="font-cinzel text-xs uppercase tracking-[0.4em] text-[#f3e8dc] mb-3">
-                          {stat.year} — {stat.label}
+                        <p
+                          className="font-cinzel text-lg font-bold tracking-wider"
+                          style={{ color: sponsor.accent }}
+                        >
+                          {sponsor.name}
                         </p>
-
-                        <div className="relative inline-block">
-                          <div
-                            className="absolute -inset-2 opacity-30"
-                            style={{ backgroundColor: stat.accent }}
-                          ></div>
-                          <p
-                            className="relative font-display text-7xl font-black px-4 py-2"
-                            style={{ color: stat.accent }}
-                          >
-                            {stat.value}
-                          </p>
-                        </div>
-
-                        {/* Ornamental Bottom */}
-                        <div className="mt-6 flex items-center justify-between">
-                          <div className="flex gap-2">
-                            <div className="w-2 h-2 rotate-45 bg-[#f3e8dc]"></div>
-                            <div
-                              className="w-2 h-2 rotate-45"
-                              style={{ backgroundColor: stat.accent }}
-                            ></div>
-                            <div className="w-2 h-2 rotate-45 bg-[#f3e8dc]"></div>
-                          </div>
-                          <svg
-                            width="30"
-                            height="30"
-                            viewBox="0 0 30 30"
-                            style={{ color: stat.accent }}
-                          >
-                            <path
-                              d="M 15,2 L 18,12 L 28,12 L 20,18 L 23,28 L 15,22 L 7,28 L 10,18 L 2,12 L 12,12 Z"
-                              fill="currentColor"
-                            />
-                          </svg>
-                        </div>
                       </div>
+                    </div>
+
+                    {/* Decorative Corner Stars */}
+                    <div className="absolute top-4 left-4">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        style={{ color: sponsor.accent }}
+                      >
+                        <path
+                          d="M 10,1 L 12,7 L 18,7 L 13,11 L 15,17 L 10,13 L 5,17 L 7,11 L 2,7 L 8,7 Z"
+                          fill="currentColor"
+                          opacity="0.3"
+                        />
+                      </svg>
+                    </div>
+                    <div className="absolute bottom-4 right-4">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        style={{ color: sponsor.accent }}
+                      >
+                        <path
+                          d="M 10,1 L 12,7 L 18,7 L 13,11 L 15,17 L 10,13 L 5,17 L 7,11 L 2,7 L 8,7 Z"
+                          fill="currentColor"
+                          opacity="0.3"
+                        />
+                      </svg>
+                    </div>
+                  </div>
+
+                  {/* Bottom Ornamental Border */}
+                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2">
+                    <div className="flex gap-2">
+                      <div
+                        className="w-2 h-2 rotate-45"
+                        style={{ backgroundColor: sponsor.accent }}
+                      ></div>
+                      <div className="w-2 h-2 rotate-45 bg-[#15122e] opacity-40"></div>
+                      <div
+                        className="w-2 h-2 rotate-45"
+                        style={{ backgroundColor: sponsor.accent }}
+                      ></div>
                     </div>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+
+          {/* Ornamental Bottom Text */}
+          <div className="mt-16 text-center">
+            <div className="inline-block relative">
+              <div className="absolute inset-0 bg-[#388697] transform skew-x-6"></div>
+              <div className="relative bg-[#15122e] border-2 border-[#388697] px-8 py-3 skew-x-6">
+                <p className="font-cinzel text-sm uppercase tracking-[0.3em] text-[#f5c422] -skew-x-6">
+                  Past Sponsors
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
-
       {/* Brochure Section - Use the responsive version */}
       <section
         id="brochure"

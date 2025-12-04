@@ -35,7 +35,7 @@ export default function Navbar() {
             {[
               { id: "hero", label: "Home" },
               { id: "about", label: "About" },
-              { id: "statistics", label: "Statistics" },
+              { id: "sponsors", label: "Sponsors" },
               { id: "brochure", label: "Brochure" },
             ].map((item, idx) => (
               <button
